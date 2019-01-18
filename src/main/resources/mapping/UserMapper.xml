@@ -22,4 +22,15 @@
         <include refid="BASE_TABLE"/>
 
     </select>
+
+    <select id="checkUser" parameterType="com.jiaxiao.entity.User" resultType="java.lang.Integer">
+      SELECT
+        COUNT(*)
+      FROM
+        user
+      WHERE username = #{username}
+      AND password = #{password}
+
+    </select>
+
 </mapper>

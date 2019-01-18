@@ -31,4 +31,8 @@ public class UserServiceImpl implements UserService {
         PageInfo result = new PageInfo(user);
         return result;
     }
+
+    public int checkUser(User user){
+        return userDao.checkUser(user);
+    }
 }

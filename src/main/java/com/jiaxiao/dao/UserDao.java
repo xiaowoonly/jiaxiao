@@ -7,4 +7,6 @@ import java.util.List;
 public interface UserDao {
 
     List<User> selectUsers();
+
+    int checkUser(User user);
 }

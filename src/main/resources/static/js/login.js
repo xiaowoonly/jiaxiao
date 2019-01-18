@@ -22,11 +22,12 @@ function login()
         data: JSON.stringify(params),
         success: function (data) {
             console.log(data);
+            alert("1111111");
             if(data===0) {
                 sessionStorage.setItem("username",username);
+                alert(username);
 
-
-                $.ajax({
+               /* $.ajax({
                     url: "/TimeTables/get?username="+username,
                     type: 'GET',
                     success: function (data) {
@@ -36,8 +37,8 @@ function login()
                     error: function (data) {
                     }
                 });
-
-                window.location.href='Timetable.html';
+*/
+                window.location.href='index.html';
             }
             else{
                 alert("用户名和密码错误");
