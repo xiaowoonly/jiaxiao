@@ -7,6 +7,8 @@
     <meta name="description" content="" />
     <link rel="stylesheet" href="css/amazeui.min.css">
     <link rel="stylesheet" href="css/wap.css">
+    <script src="js/amazeui.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     <title>公告</title>
 </head>
 <body style="background:#ececec">
@@ -29,50 +31,15 @@
             <div class="pet_content_main pet_article_like_delete">
                 <div data-am-widget="list_news" class="am-list-news am-list-news-default am-no-layout">
                     <div class="am-list-news-bd">
-                        <ul class="am-list">
+                        <ul class="am-list" id="ul">
                             <!--缩略图在标题右边-->
-                            <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_hd_list">
+                           <!-- <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_hd_list">
                                 <a href="###" class="pet_hd_block">
                                     <div class="pet_hd_block_title">Less2.0 创业实战课程强势回归</div>
                                     <div class="pet_hd_block_tag"><span class="hd_tag_jh">筹备中</span> 10月20日 09:30 - 16:00 </div>
                                 </a>
-                            </li>
-                            <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_hd_list">
-                                <a href="###" class="pet_hd_block">
-                                    <div class="pet_hd_block_title">第二届网易未来科技峰会</div>
-                                    <div class="pet_hd_block_tag"><span>报名中</span> 10月20日 09:30 - 16:00 </div>
-                                </a>
-                            </li>
-                            <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_hd_list">
-                                <a href="###" class="pet_hd_block">
-                                    <div class="pet_hd_block_title">2015京东移动技术峰会</div>
-                                    <div class="pet_hd_block_tag"><span>报名中</span> 10月20日 09:30 - 16:00 </div>
-                                </a>
-                            </li>
-                            <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_hd_list">
-                                <a href="###" class="pet_hd_block">
-                                    <div class="pet_hd_block_title">京东技术开放日第十期：大数据驱动的智慧供应链</div>
-                                    <div class="pet_hd_block_tag"><span>报名中</span> 10月20日 09:30 - 16:00 </div>
-                                </a>
-                            </li>
-                            <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_hd_list">
-                                <a href="###" class="pet_hd_block">
-                                    <div class="pet_hd_block_title">金融学院JWT外汇培训大型预览课邀请函</div>
-                                    <div class="pet_hd_block_tag"><span class="hd_tag_js">已截止</span> 10月20日 09:30 - 16:00 </div>
-                                </a>
-                            </li>
-                            <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_hd_list">
-                                <a href="###" class="pet_hd_block">
-                                    <div class="pet_hd_block_title">2015凤凰财经峰会：创变与繁荣</div>
-                                    <div class="pet_hd_block_tag"><span class="hd_tag_js">已截止</span> 10月20日 09:30 - 16:00 </div>
-                                </a>
-                            </li>
-                            <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_hd_list">
-                                <a href="###" class="pet_hd_block">
-                                    <div class="pet_hd_block_title">Nature, Unnatural自然不自然装置艺术展</div>
-                                    <div class="pet_hd_block_tag"><span class="hd_tag_js">已截止</span> 10月20日 09:30 - 16:00 </div>
-                                </a>
-                            </li>
+                            </li>-->
+
                         </ul>
                     </div>
 
@@ -85,9 +52,7 @@
         <div class="pet_article_footer_info">Copyright(c)2015 PetShow All Rights Reserved</div>
     </div>
 </div>
-<script src="js/jquery.min.js"></script>
-<script src="js/amazeui.min.js"></script>
-<script>
+<!--<script>
     $(function(){
 
         // 动态计算新闻列表文字样式
@@ -119,19 +84,18 @@
         });
     });
 
-</script>
-<!--<script>
-    window.onload(function requestData(){
+</script>-->
+<script>
+    $(function(){
         $.ajax({
-            url: "/login/check",
+            url: "/notice/list",
             type: 'POST',
             dataType: "json",
             contentType: 'application/json',
-            /*data: JSON.stringify(params),*/
             success: function(data){
-                /*这个方法里是ajax发送请求成功之后执行的代码*/
-                showData(data);//我们仅做数据展示
-                alert(data);
+                var json = JSON.stringify(data);
+                showData(data);//数据展示
+                console.log(data);
             },
             error: function(msg){
                 alert("ajax连接异常："+msg);
@@ -140,17 +104,70 @@
     });
 
     //展示数据
-    function showData(data) {
-        var str = "";//定义用于拼接的字符串
-        for (var i = 0; i < data.length; i++) {
-            //拼接表格的行和列
-            str = "<tr><td>" + data[i].name + "</td><td>" + data[i].password + "</td></tr>";
-            //追加到table中
-            $("#tab").append(str);
+   function showData(data) {
+       var str = "";//定义用于拼接的字符串
+       var type = 0;
+       for (var i = 0; i < data.length; i++) {
+           getMyDate(parseInt(data));
+            if(1 == data[i].type){
+                //拼接一下
+                str = "<li class=\"am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_hd_list\">"
+                        + "<a class=\"pet_hd_block\">"
+                        + "<div class=\"pet_hd_block_title\">" + data[i].name + "</div>"
+                        + "<div class=\"pet_hd_block_tag\"><span class=\"hd_tag_jh\">管理员</span> " + getMyDate(data[0].created) + "</div>"
+                        + "</a>"
+                        + "</li>"
+                //追加到table中
+                $("#ul").append(str);
+            }
+            if(2 == data[i].type){
+                //拼接一下
+                str = "<li class=\"am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_hd_list\">"
+                    + "<a class=\"pet_hd_block\">"
+                    + "<div class=\"pet_hd_block_title\">" + data[i].name + "</div>"
+                    + "<div class=\"pet_hd_block_tag\"><span class=\"hd_tag_js\">教师</span> " + getMyDate(data[0].created) + "</div>"
+                    + "</a>"
+                    + "</li>"
+                //追加到table中
+                $("#ul").append(str);
+            }
+            if(3 == data[i].type){
+                //拼接一下
+                str = "<li class=\"am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_hd_list\">"
+                    + "<a class=\"pet_hd_block\">"
+                    + "<div class=\"pet_hd_block_title\">" + data[i].name + "</div>"
+                    + "<div class=\"pet_hd_block_tag\"><span class=\"hd_tag_jz\">家长</span> " + getMyDate(data[0].created) + "</div>"
+                    + "</a>"
+                    + "</li>"
+                //追加到table中
+                $("#ul").append(str);
+            }
         }
     }
 
-</script>-->
+    //格式化时间
+    function getMyDate(str) {
+        var oDate = new Date(str),
+            oYear = oDate.getFullYear(),
+            oMonth = oDate.getMonth()+1,
+            oDay = oDate.getDate(),
+            oHour = oDate.getHours(),
+            oMin = oDate.getMinutes(),
+            oSen = oDate.getSeconds(),
+            oTime = oYear +'-'+ addZero(oMonth) +'-'+ addZero(oDay) +' '+ addZero(oHour) +':'+
+                addZero(oMin) +':'+addZero(oSen);
+        return oTime;
+    }
+
+    //补零操作
+    function addZero(num){
+        if(parseInt(num) < 10){
+            num = '0'+num;
+        }
+        return num;
+    }
+
+</script>
 
 </body>
 </html>
