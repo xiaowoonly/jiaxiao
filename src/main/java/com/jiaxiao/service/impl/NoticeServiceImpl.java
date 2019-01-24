@@ -20,6 +20,10 @@ public class NoticeServiceImpl implements NoticeService {
     @Autowired
     private NoticeDao noticeDao;
 
+    /**
+     * 查询所有公告
+     * @return
+     */
     @Override
     public List<Notice> findAllNotice(){
         return noticeDao.findAllNotice();

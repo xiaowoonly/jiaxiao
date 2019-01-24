@@ -16,6 +16,7 @@
         noticeid, `name`, created, `type`
     </sql>
 
+    <!--查询所有公告 -->
     <select id="findAllNotice" resultType="com.jiaxiao.entity.Notice">
         SELECT
         <include refid="BASE_COLUMN"/>

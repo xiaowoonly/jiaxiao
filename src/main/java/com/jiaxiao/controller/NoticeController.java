@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+/**
+ * 公告
+ */
 @Controller
 @RequestMapping("/notice")
 public class NoticeController {
@@ -21,6 +24,10 @@ public class NoticeController {
     @Autowired
     private NoticeService noticeService;
 
+    /**
+     * 查询所有公告
+     * @return
+     */
     @RequestMapping(value = "/list",method = RequestMethod.POST,consumes="application/json;charset=UTF-8" )
     @ResponseBody
     public String findNotice(){
