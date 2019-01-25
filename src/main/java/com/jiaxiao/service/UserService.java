@@ -8,4 +8,5 @@ public interface UserService {
     PageInfo<User> findAllUser(int pageNum, int pageSize);
 
     int checkUser (User user);
+    int registerUser (User user);
 }

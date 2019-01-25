@@ -33,20 +33,22 @@
 
     </select>
 
-    <!--<insert id="mingzi" parameterType="com.jiaxiao.entity.User">
+    <insert id="registerUser" parameterType="com.jiaxiao.entity.User">
 		INSERT INTO
         <include refid="BASE_TABLE"/>
 		(
-			`name`,
-			xxx,
-			xxxx
+			`username`,
+			`password`,
+			`stuno`
 		)
 		VALUES
 		(
-			#{name}
+			#{password},
+        #{password},
+        #{stuno}
 
 		)
-	</insert>-->
+	</insert>
 
    <!-- <update id="mingzi" parameterType="String">
 		UPDATE

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jiaxiao.dao.TimeTablesDao">
+    <resultMap id="BaseResultMap" type="com.jiaxiao.entity.TimeTables" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="course" property="course" jdbcType="VARCHAR" />
+        <result column="stuno" property="stuno" jdbcType="VARCHAR" />
+        <result column="valid" property="valid" jdbcType="INTEGER" />
+    </resultMap>
+
+    <!--查询课程表 -->
+    <select id="getCourse" parameterType="com.jiaxiao.entity.TimeTables" resultType="java.lang.String">
+      SELECT
+        course
+      FROM
+        timetables
+      WHERE stuno = #{stuno}
+      AND valid = 1
+
+    </select>
+
+</mapper>

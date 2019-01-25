@@ -32,7 +32,13 @@ public class UserServiceImpl implements UserService {
         return result;
     }
 
+    @Override
     public int checkUser(User user){
         return userDao.checkUser(user);
+    }
+
+    @Override
+    public int registerUser(User user){
+        return userDao.registerUser(user);
     }
 }

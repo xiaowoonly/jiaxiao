@@ -9,4 +9,5 @@ public interface UserDao {
     List<User> selectUsers();
 
     int checkUser(User user);
+    int registerUser(User user);
 }

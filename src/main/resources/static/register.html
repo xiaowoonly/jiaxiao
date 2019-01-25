@@ -7,7 +7,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
     <link rel="stylesheet" type="text/css" href="css/global.css" />
-
+    <script src="js/register.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 </head>
 
 <body>
@@ -36,7 +37,7 @@
 
                 <img src="images/icon_user.png" width="24" height="24" alt="用户图标"></span><input
 
-                    id="txt_UserNmae" name="txt_UserName" type="text" placeholder="手机号"></div>
+                    id="ID" name="ID" type="text" placeholder="手机号"></div>
 
             <div>
 
@@ -54,9 +55,18 @@
 
                     id="txt_PwdTwo" name="txt_PwdTwo" type="password" placeholder="再次输入密码"></div>
 
-            <input type="hidden" id="hid_Action" name="hid_Action" value="add" />
 
-            <a id="asubmit" class="btn">立即注册</a>
+            <div>
+
+            <span>
+
+                <img src="images/icon_user.png" width="24" height="24" alt="用户图标"></span><input
+
+                    id="txt_stuNo" name="txt_stuNo" type="text" placeholder="学生学号"></div>
+
+
+
+            <a id="asubmit" class="btn"  onclick="register()" >立即注册</a>
 
         </section>
 

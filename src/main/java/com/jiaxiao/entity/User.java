@@ -5,6 +5,15 @@ public class User {
     private Long id;
     private String password;
     private String username;
+    private String stuno;
+
+    public String getStuno() {
+        return stuno;
+    }
+
+    public void setStuno(String stuno) {
+        this.stuno = stuno;
+    }
 
     public Long getId() {
         return id;
