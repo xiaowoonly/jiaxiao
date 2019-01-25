@@ -6,6 +6,8 @@ import com.jiaxiao.service.TimeTablesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service(value = "timetablesservice")
 public class TimeTablesServiceImpl implements TimeTablesService {
 
@@ -13,7 +15,7 @@ public class TimeTablesServiceImpl implements TimeTablesService {
     TimeTablesDao timeTablesDao;
 
     @Override
-    public  String  getCourse(TimeTables timeTables){
+    public String getCourse(TimeTables timeTables){
         return timeTablesDao.getCourse(timeTables);
     }
 }
