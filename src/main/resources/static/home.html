@@ -5,78 +5,169 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <!-- CSS Code -->
+    <link rel="stylesheet" href="css/remen_style.css" type="text/css">
+    <link rel="stylesheet" href="css/flickerplate.css" type="text/css">
+    <!-- JavaScript Code -->
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <script type="text/javascript" src="js/modernizr-custom-v2.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-finger-v0.1.0.min.js"></script>
+    <script type="text/javascript" src="js/flickerplate.min.js"></script>
+    <script type="text/javascript" src="js/jquery.lazyload.js"></script>
 </head>
-
-<body>
-
-
-
-
-
-
-
-
-
-
-
-    <div class="btn3 clearfix">
-
-        <div class="menu">
-            <div class="bt-name"><a href="javascript:;">首页</a></div>
-        </div><!--menu-->
-
-
-        <div class="menu">
-            <div class="bt-name">消息</div>
-            <div class="sanjiao"></div>
-            <div class="new-sub">
-                <ul >
-                    <li><a href="javascript:;">查看下消息</a></li>
-                    <li><a href="javascript:;" >查看下消息</a></li>
-                </ul>
-                <div class="tiggle"></div>
-                <div class="innertiggle"></div>
-            </div>
-
-        </div><!--menu-->
-
-
-        <div class="menu" >
-            <div class="bt-name">
-                <a href="Timetable.html">课程</a>
-            </div>
-        </div><!--menu-->
-
-        <div class="menu" >
-            <div class="bt-name">
-                <a href="notice.html">公告</a>
-            </div>
-        </div><!--menu-->
-
+<!--
+    类命名规则 布局（grid）（.g-）；
+    模块（module）（.m-）；
+    元件（unit）（.u-）；
+    功能（function）（.f-）；
+    皮肤（skin）（.s-）；
+    状态（.z-）。
+     -->
+<body bgcolor="#ebebeb">
+<header>热门</header>
+<!-- banner图片轮播 -->
+<div class="g-banner">
+    <div class="flicker-example">
+        <ul>
+            <li data-background="images/home/remen_01.jpg"><a href="javascript:void(0)"></a></li>
+            <li data-background="images/home/remen_01.jpg"><a href="javascript:void(0)"></a></li>
+            <li data-background="images/home/remen_01.jpg"><a href="javascript:void(0)"></a></li>
+            <li data-background="images/home/remen_01.jpg"><a href="javascript:void(0)"></a></li>
+        </ul>
     </div>
-<script type="text/javascript">
+</div>
+<!--  ----------------------------热门短片----------------------------->
+<!-- 导航条 -->
+<nav class="_main">
+    <p><img src="images/home/iconfont-remen.png" >热门短片</p>
+    <h1>更多</h1>
+</nav>
+<!-- 主要内容 -->
+<div class="g_short clear">
+    <ul>
+        <a href="remen_short.html"><li>
+            <!-- 半透明遮罩 -->
+            <div class="f-overlay">
+                <h1>冬天的风景</h1>
+                <h2><img src="images/home/icon_like.png"><span>56</span></h2>
+                <h3><img src="images/home/iconfont-liulang.png"><span>4567</span></h3>
+            </div>
+            <div class="main"><img src="images/home/02.jpg"></div>
+        </li></a>
 
+        <a href="remen_short.html"><li>
+            <!-- 半透明遮罩 -->
+            <div class="f-overlay">
+                <h1>冬天的风景</h1>
+                <h2><img src="images/home/icon_like.png"><span>56</span></h2>
+                <h3><img src="images/home/iconfont-liulang.png"><span>4567</span></h3>
+            </div>
+            <div class="main"><img src="images/home/02.jpg"></div>
+        </li></a>
+        <a href="remen_short.html"><li>
+            <!-- 半透明遮罩 -->
+            <div class="f-overlay">
+                <h1>冬天的风景</h1>
+                <h2><img src="images/home/icon_like.png"><span>56</span></h2>
+                <h3><img src="images/home/iconfont-liulang.png"><span>4567</span></h3>
+            </div>
+            <div class="main"><img src="images/home/02.jpg"></div>
+        </li></a>
+        <a href="remen_short.html"><li>
+            <!-- 半透明遮罩 -->
+            <div class="f-overlay">
+                <h1>冬天的风景</h1>
+                <h2><img src="images/home/icon_like.png"><span>56</span></h2>
+                <h3><img src="images/home/iconfont-liulang.png"><span>4567</span></h3>
+            </div>
+            <div class="main"><img src="images/home/02.jpg"></div>
+        </li></a>
+        <li>
+            <!-- 半透明遮罩 -->
+            <div class="f-overlay">
+                <h1>冬天的风景</h1>
+                <h2><img src="images/home/icon_like.png"><span>56</span></h2>
+                <h3><img src="images/home/iconfont-liulang.png"><span>4567</span></h3>
+            </div>
+            <div class="main"><img src="images/home/02.jpg"></div>
+        </li>
+        <li>
+            <!-- 半透明遮罩 -->
+            <div class="f-overlay">
+                <h1>冬天的风景</h1>
+                <h2><img src="images/home/icon_like.png"><span>56</span></h2>
+                <h3><img src="images/home/iconfont-liulang.png"><span>4567</span></h3>
+            </div>
+            <div class="main"><img src="images/home/02.jpg"></div>
+        </li>
+    </ul>
+</div>
+<!--  ----------------------------热门视频购----------------------------->
+<nav class="_main">
+    <p><img src="images/home/iconfont-remen.png" >热门视频购</p>
+    <h1>更多</h1>
+</nav>
+<!-- 主要内容 -->
+<div class="g_video clear">
+    <ul>
+        <a href="remen_video.html"><li>
+            <!-- 半透明遮罩 -->
+            <div class="f-overlay">
+                <div class="wrap">
+                    <h1>春重工水洗磨破双口袋背带裤连衣裙</h1>
+                    <h2><img src="images/home/iconfont-liulang.png"><span>4567</span></h2>
+                </div>
+            </div>
+            <img src="images/home/03.jpg">
+        </li></a>
 
-</script>
+        <a href="remen_video.html"><li>
+            <!-- 半透明遮罩 -->
+            <div class="f-overlay">
+                <div class="wrap">
+                    <h1>男士夹克青少年休闲流行外套</h1>
+                    <h2><img src="images/home/iconfont-liulang.png"><span>4567</span></h2>
+                </div>
+            </div>
+            <img src="images/home/04.jpg">
+        </li></a>
+        <a href="remen_video.html"><li>
+            <!-- 半透明遮罩 -->
+            <div class="f-overlay">
+                <div class="wrap">
+                    <h1>Motemascara新品flow fushi 纤长型黑色睫毛膏</h1>
+                    <h2><img src="images/home/iconfont-liulang.png"><span>4567</span></h2>
+                </div>
+            </div>
+            <img src="images/home/05.jpg">
+        </li></a>
+    </ul>
+</div>
+<footer>
+    <ul>
+        <li class="active">
+            <img src="images/home/remen_xuanzhong.png" aria-hidden="true">热门
+        </li>
+        <a href="xiaoxi/xiaoxi_news.html"><li>
+            <img src="images/home/iconfont-news.png" aria-hidden="true">消息
+        </li></a>
+        <a href="yule/yule_dynamic.html"><li class="main">
+            <div class="g_wrap">
+                <img src="images/home/main_icon.png" aria-hidden="true">
 
-<script type="text/javascript">
-    //弹出垂直菜单
-    $(".menu").click(function() {
-        if ($(this).hasClass("cura")) {
-            $(this).children(".new-sub").hide(); //当前菜单下的二级菜单隐藏
-            $(".menu").removeClass("cura"); //同一级的菜单项
-        } else {
-            $(".menu").removeClass("cura"); //移除所有的样式
-            $(this).addClass("cura"); //给当前菜单添加特定样式
-            $(".menu").children(".new-sub").slideUp("fast"); //隐藏所有的二级菜单
-            $(this).children(".new-sub").slideDown("fast"); //展示当前的二级菜单
-        }
-    });
-</script>
+            </div>
+        </li></a>
+        <a href="Timetable.html"><li>
+            <img src="images/home/icon_tansuo.png" aria-hidden="true">课程表
+        </li></a>
+        <a href="person.html"><li>
+            <img src="images/home/icon_personal.png" aria-hidden="true">我
+        </li></a>
+    </ul>
+</footer>
 
-
-
+<script src="js/script.js"></script>
 </body>
 </html>
