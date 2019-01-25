@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="stylesheet" type="text/css" href="css/global.css" />
-    <script src="js/login.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     <link href="css/login.css" rel="stylesheet" type="text/css" />
     <style>
@@ -18,8 +17,7 @@
             cursor: pointer;
         }
         #yzm{
-            !important;
-            width: 50%;
+            width: 50% !important;;
         }
     </style>
 </head>
@@ -37,7 +35,7 @@
 
             </div>
 
-            个人登录
+            登录
 
         </header>
 
@@ -74,7 +72,7 @@
                 <canvas id="canvas" width="100" height="43"></canvas></div>
 
 
-            <a id="asubmit" class="btnLogin"  >登录</a>
+            <a id="asubmit"  class="btnLogin"  >登录</a>
 
             <a href="register.html" class="btnRegister">注册</a>
 
@@ -106,23 +104,57 @@
 
         $("#canvas").on('click',function(){
             draw(show_num);
-        })
+        });
         $(".btnLogin").on('click',function(){
 
 
+            var username = document.getElementById("ID").value;
+            var password = document.getElementById("PASSWORD").value;
+            if(username===""){
+                alert("请输入手机号");
+                return false;
+            }else if(password===""){
+                alert("请输入密码");
+                return false;
+            }
             var val = $(".input-val").val().toLowerCase();
             var num = show_num.join("");
             if(val==''){
                 alert('请输入验证码！');
             }else if(val == num){
                 alert('提交成功！');
+                var params ={};
+                params.username = username;
+                params.password = password;
+
+                $.ajax({
+                    url: "/login/check",
+                    type: 'POST',
+                    dataType: "json",
+                    contentType: 'application/json',
+                    data: JSON.stringify(params),
+                    success: function (data) {
+                        console.log(data);
+                        alert("1111111");
+                        if(data===0) {
+                            sessionStorage.setItem("username",username);
+                            alert(username);
+                            window.location.href='index.html';
+                        }
+                        else{
+                            alert("用户名和密码错误");
+                        }
+                    },
+                    error: function (data) {
+                    }
+                });
             }else{
                 alert('验证码错误！请重新输入！');
                 $(".input-val").val('');
                 draw(show_num);
             }
         })
-    })
+    });
 
     function draw(show_num) {
         var canvas_width=$('#canvas').width();

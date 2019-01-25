@@ -112,10 +112,13 @@ ul,li { list-style: none; padding: 0; margin: 0}
 
 /* 内页头部 */
 .pet_head {position: fixed; height: 49px; width: 100%; left: 0; right: 0; z-index: 999; }
-.pet_head_block {background: #303435; max-width: 640px; margin: 0 auto; line-height: 53px; }
+.pet_head_block {background: #2576db; max-width: 640px; margin: 0 auto; line-height: 53px; }
 .pet_head_jt_ico { font-size: 25px; border-right: 1px solid #4c4a4b;  }
 .pet_head_gd_ico { font-size: 27px; }
 .pet_head_block .am-header-nav>a {color: #918f90; height: 30px; line-height: 30px; min-width: 48px;}
+
+#title{ font-size:1.2em; color:#fff; height: 43px; line-height:2.1em; text-align:center; background:#2576db; position:relative; }
+#title .back{  width:24px; height:24px; text-align:center; position:absolute; top:0.6em; left:0.6em; background:url(../images/icon_return.png) no-repeat; cursor:pointer; }
 
 /* 内页文章 */
 .pet_content { width: 100%; background: #ececec; padding-top: 49px;}
