@@ -5,6 +5,8 @@
 		<title>信息</title>
 		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 		<link href="css/person_info.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+
 	</head>
 	<body>
 		<div class="t-top"><!--头部-->
@@ -19,39 +21,71 @@
 		<div class="t-main1">
 			<span>基本信息</span>
 			<div class="t-main1-list" >
-				<label>姓名：</label><input type="text" class="name-input" />
+				<label>姓名：</label><input id="parentName" type="text" class="name-input" />
 			</div>
 			<div class="t-main1-list" style="padding-top: 20px;">
-				<label>性别：</label><input type="text" class="name-input" style="margin-left: 1px;" />
+				<label>性别：</label><input type="text" id="parentGender" class="name-input" style="margin-left: 1px;" />
 			</div>
 			<div class="t-main1-list" style="padding-top: 20px;">
-				<label>联系电话：</label><input type="text" class="name-input" style="margin-left: 1px;" />
+				<label>联系电话：</label><input  id="parentPhone" type="text" class="name-input" style="margin-left: 1px;" />
 			</div>
 		</div>
 
 		<div class="t-main1">
 			<span>学生信息</span>
 			<div class="t-main1-list" >
-				<label>姓名：</label><input type="text" class="name-input" />
+				<label>姓名：</label><input id="stuName" type="text" class="name-input" />
 			</div>
 			<div class="t-main1-list" style="padding-top: 20px;">
-				<label>学号：</label><input type="text" class="name-input" style="margin-left: 1px;" />
-			</div>
-
-			<div class="t-main1-list" style="padding-top: 20px;">
-				<label>性别：</label><input type="text" class="name-input" style="margin-left: 1px;" />
-			</div>
-
-
-			<div class="t-main1-list" style="padding-top: 20px;">
-				<label>联系电话：</label><input type="text" class="name-input" style="margin-left: 1px;" />
+				<label>学号：</label><input id="stuNo" type="text" class="name-input" style="margin-left: 1px;" />
 			</div>
 
 			<div class="t-main1-list" style="padding-top: 20px;">
-				<label>家庭住址：</label><input type="text" class="name-input" style="margin-left: 1px;" />
+				<label>性别：</label><input id="stuGender" type="text" class="name-input" style="margin-left: 1px;" />
+			</div>
+
+
+			<div class="t-main1-list" style="padding-top: 20px;">
+				<label>联系电话：</label><input id="stuPhone" type="text" class="name-input" style="margin-left: 1px;" />
+			</div>
+
+			<div class="t-main1-list" style="padding-top: 20px;">
+				<label>家庭住址：</label><input id="stuAddress" type="text" class="name-input" style="margin-left: 1px;" />
 			</div>
 		</div>
 
 		<a href="default.htm" ><div class="subbtn">提交</div></a>
 	</body>
+
+<script>
+	$(function(){
+
+		var username = sessionStorage.getItem("username");
+		var params ={};
+		params.username = username;
+
+		$.ajax({
+			url: "/user/studentInfo",
+			type: 'POST',
+			dataType: "json",
+			contentType: 'application/json',
+			data: JSON.stringify(params),
+			success: function (data) {
+				var json =eval(data);
+				console.log(json);
+				document.getElementById('stuName').value=json[0].name;
+				document.getElementById('stuNo').value=json[0].number;
+				document.getElementById('stuGender').value=json[0].gender;
+				document.getElementById('stuAddress').value=json[0].address;
+				document.getElementById('stuPhone').value=json[0].phone;
+				document.getElementById('parentName').value=json[0].parentName;
+				document.getElementById('parentGender').value=json[0].parentGender;
+				document.getElementById('parentPhone').value=json[0].parentPhone;
+
+			},
+			error: function (data) {
+			}
+		});
+	});
+</script>
 </html>

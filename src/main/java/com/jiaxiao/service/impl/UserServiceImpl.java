@@ -3,6 +3,7 @@ package com.jiaxiao.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.jiaxiao.dao.UserDao;
+import com.jiaxiao.entity.Student;
 import com.jiaxiao.entity.User;
 import com.jiaxiao.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,12 +44,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int checkPwd(String password){
-        return  userDao.checkPwd(password);
+    public int updatePwd( User user){
+        return  userDao.updatePwd(user);
     }
 
     @Override
-    public int updatePwd(String password){
-        return  userDao.updatePwd(password);
+    public  List<User> getStuNo(User user){
+        return  userDao.getStuNo(user);
     }
+    @Override
+    public List<Student>getStudentInfo(String stuNo){return userDao.getStudentInfo(stuNo);}
 }

@@ -19,7 +19,6 @@ public class LoginController {
     @RequestMapping(value = "/check",method = RequestMethod.POST,consumes="application/json;charset=UTF-8" )
     @ResponseBody
     public Object LoginCheck(@RequestBody User user){
-        System.out.println("121212121212"+user.getUsername());
         String userName =user.getUsername();
         String password =user.getPassword();
         int count = userService.checkUser(user);

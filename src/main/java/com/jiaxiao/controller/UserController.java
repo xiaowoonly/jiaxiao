@@ -1,12 +1,13 @@
 package com.jiaxiao.controller;
 
+import com.jiaxiao.entity.Student;
+import com.jiaxiao.entity.User;
 import com.jiaxiao.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -27,17 +28,23 @@ public class UserController {
 
 
     @ResponseBody
-    @GetMapping("/updatePwd")
-    public int checkPwd( @RequestParam(name = "oldPwd")
-                                 String oldPwd,
-                         @RequestParam(name = "newPwd")
-                                 String newPwd){
-        int status = userService.checkPwd(oldPwd);
-        if(status==0) {
-            return 0;
-        }
-        userService.updatePwd(newPwd);
-        return 1;
+    @RequestMapping(value = "/updatePwd",method = RequestMethod.POST )
+    public int checkPwd(@RequestBody User user){
+
+         userService.updatePwd(user);
+         return 0;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/studentInfo",method = RequestMethod.POST )
+    public List<Student> getStudentInfo(@RequestBody User user){
+
+       List<User> li = userService.getStuNo(user);
+       List<Student>list = userService.getStudentInfo(li.get(0).getStuno());
+       list.get(0).setParentName(li.get(0).getName());
+       list.get(0).setParentGender(li.get(0).getGender());
+       list.get(0).setParentPhone(li.get(0).getUsername());
+       return list;
     }
 
 }

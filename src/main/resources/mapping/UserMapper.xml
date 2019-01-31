@@ -33,14 +33,20 @@
 
     </select>
 
-    <select id="checkPwd" parameterType="String" resultType="java.lang.Integer">
+    <select id="getStuNo" parameterType="com.jiaxiao.entity.User" resultType="com.jiaxiao.entity.User">
       SELECT
-        COUNT(*)
+        *
       FROM
         user
       WHERE username = #{username}
-      AND password = #{password}
+    </select>
 
+    <select id="getStudentInfo" parameterType="java.lang.String" resultType="com.jiaxiao.entity.Student">
+      SELECT
+        *
+      FROM
+        student
+      WHERE `number` = #{number}
     </select>
 
     <insert id="registerUser" parameterType="com.jiaxiao.entity.User">
@@ -60,7 +66,7 @@
 		)
 	</insert>
 
-    <update id="updatePwd" parameterType="String">
+    <update id="updatePwd"  parameterType="com.jiaxiao.entity.User">
 		UPDATE
         <include refid="BASE_TABLE"/>
 		SET
