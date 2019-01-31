@@ -33,6 +33,16 @@
 
     </select>
 
+    <select id="checkPwd" parameterType="String" resultType="java.lang.Integer">
+      SELECT
+        COUNT(*)
+      FROM
+        user
+      WHERE username = #{username}
+      AND password = #{password}
+
+    </select>
+
     <insert id="registerUser" parameterType="com.jiaxiao.entity.User">
 		INSERT INTO
         <include refid="BASE_TABLE"/>
@@ -50,14 +60,14 @@
 		)
 	</insert>
 
-   <!-- <update id="mingzi" parameterType="String">
+    <update id="updatePwd" parameterType="String">
 		UPDATE
         <include refid="BASE_TABLE"/>
 		SET
-			`name` = #{name}
+			`password` = #{password}
 		WHERE
-			id = #{id}
-	</update>-->
+			username = #{username}
+	</update>
 
   <!--  <delete id="mingzi" parameterType="java.lang.Integer">
 		DELETE FROM

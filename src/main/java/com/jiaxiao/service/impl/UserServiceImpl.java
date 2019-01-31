@@ -41,4 +41,14 @@ public class UserServiceImpl implements UserService {
     public int registerUser(User user){
         return userDao.registerUser(user);
     }
+
+    @Override
+    public int checkPwd(String password){
+        return  userDao.checkPwd(password);
+    }
+
+    @Override
+    public int updatePwd(String password){
+        return  userDao.updatePwd(password);
+    }
 }

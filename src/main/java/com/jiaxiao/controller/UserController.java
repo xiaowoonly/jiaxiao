@@ -25,4 +25,19 @@ public class UserController {
         return userService.findAllUser(pageNum,pageSize);
     }
 
+
+    @ResponseBody
+    @GetMapping("/updatePwd")
+    public int checkPwd( @RequestParam(name = "oldPwd")
+                                 String oldPwd,
+                         @RequestParam(name = "newPwd")
+                                 String newPwd){
+        int status = userService.checkPwd(oldPwd);
+        if(status==0) {
+            return 0;
+        }
+        userService.updatePwd(newPwd);
+        return 1;
+    }
+
 }

@@ -9,4 +9,6 @@ public interface UserService {
 
     int checkUser (User user);
     int registerUser (User user);
+    int checkPwd(String password);
+    int updatePwd(String password);
 }
