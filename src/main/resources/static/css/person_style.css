@@ -337,7 +337,7 @@ nav._main ul {
 }
 nav._main ul li {
 	float: left;
-	width: 33.33333%;
+	width: 100%;
 	border-left: 1px #e3c59b solid;
 	height: 100%;
 	color: #fff;
