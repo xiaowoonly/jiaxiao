@@ -17,6 +17,12 @@ public class TimeTablesController {
     @Autowired
     private TimeTablesService timeTablesService;
 
+
+    /**
+     * 获取课程
+     * @return
+     */
+
     @RequestMapping(value = "/get",method = RequestMethod.POST )
     @ResponseBody
     public String getTimeTables(@RequestBody TimeTables timeTables){
