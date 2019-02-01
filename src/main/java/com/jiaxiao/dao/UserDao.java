@@ -13,6 +13,9 @@ public interface UserDao {
     int registerUser(User user);
     int updatePwd(User user);
 
-    List<User> getStuNo(User user);
+    List<User> getPersonInfo(User user);
     List<Student>getStudentInfo(String stuNo);
+
+    int updatePersonInfo(User user);
+    int updateStuInfo(Student student);
 }

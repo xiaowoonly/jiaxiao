@@ -8,7 +8,6 @@ public class Student {
     private String address;
     private String phone;
     private String parentName;
-    private String parentGender;
     private String parentPhone;
 
 
@@ -18,14 +17,6 @@ public class Student {
 
     public void setParentName(String parentName) {
         this.parentName = parentName;
-    }
-
-    public String getParentGender() {
-        return parentGender;
-    }
-
-    public void setParentGender(String parentGender) {
-        this.parentGender = parentGender;
     }
 
     public String getParentPhone() {

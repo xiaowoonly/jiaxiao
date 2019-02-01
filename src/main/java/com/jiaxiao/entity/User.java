@@ -6,17 +6,7 @@ public class User {
     private String password;
     private String username;
     private String stuno;
-
-    private String gender;
     private String name;
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
 
     public String getName() {
         return name;

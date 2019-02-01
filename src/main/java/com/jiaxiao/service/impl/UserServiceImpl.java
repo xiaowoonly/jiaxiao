@@ -49,9 +49,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public  List<User> getStuNo(User user){
-        return  userDao.getStuNo(user);
+    public  List<User> getPersonInfo(User user){
+        return  userDao.getPersonInfo(user);
     }
     @Override
     public List<Student>getStudentInfo(String stuNo){return userDao.getStudentInfo(stuNo);}
+    @Override
+    public  int updatePersonInfo(User user){
+        return  userDao.updatePersonInfo(user);
+        }
+
+     @Override
+     public int updateStuInfo(Student student){
+        return userDao.updateStuInfo(student);
+     }
+
 }

@@ -33,7 +33,7 @@
 
     </select>
 
-    <select id="getStuNo" parameterType="com.jiaxiao.entity.User" resultType="com.jiaxiao.entity.User">
+    <select id="getPersonInfo" parameterType="com.jiaxiao.entity.User" resultType="com.jiaxiao.entity.User">
       SELECT
         *
       FROM
@@ -68,12 +68,30 @@
 
     <update id="updatePwd"  parameterType="com.jiaxiao.entity.User">
 		UPDATE
-        <include refid="BASE_TABLE"/>
+        student
 		SET
 			`password` = #{password}
 		WHERE
 			username = #{username}
 	</update>
+
+    <update id="updateStuInfo"  parameterType="com.jiaxiao.entity.User">
+        UPDATE
+        <include refid="BASE_TABLE"/>
+        SET
+        `password` = #{password}
+        WHERE
+        username = #{username}
+    </update>
+
+    <update id="updatePersonInfo"  parameterType="com.jiaxiao.entity.User">
+        UPDATE
+        <include refid="BASE_TABLE"/>
+        SET
+        `name` = #{name},
+        WHERE
+        username = #{username}
+    </update>
 
   <!--  <delete id="mingzi" parameterType="java.lang.Integer">
 		DELETE FROM
