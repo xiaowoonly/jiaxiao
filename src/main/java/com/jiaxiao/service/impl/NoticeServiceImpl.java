@@ -28,4 +28,15 @@ public class NoticeServiceImpl implements NoticeService {
     public List<Notice> findAllNotice(){
         return noticeDao.findAllNotice();
     }
+
+    /**
+     * 根据名字查公告
+     * @param notice
+     * @return
+     */
+    @Override
+    public List<Notice> getNoticeByName(Notice notice){
+
+        return noticeDao.getNoticeByName (notice);
+    }
 }

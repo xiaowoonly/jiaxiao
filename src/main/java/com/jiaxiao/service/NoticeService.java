@@ -9,4 +9,6 @@ import java.util.List;
 public interface NoticeService {
 
     List<Notice> findAllNotice();
+
+    List<Notice> getNoticeByName(Notice notice);
 }

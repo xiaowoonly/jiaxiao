@@ -38,6 +38,19 @@ public class NoticeController {
         return listJson;
     }
 
+    /**
+     * 根据单个id查所发公告
+     * @param notice
+     * @return
+     */
+    @RequestMapping(value = "/getNotice",method = RequestMethod.POST )
+    @ResponseBody
+    public String getNoticeByName(@RequestBody Notice notice){
+        List<Notice> str = noticeService.getNoticeByName(notice);
+        String listJson = JSONObject.toJSONString(str);
+
+        return listJson;
+    }
 
 
 }

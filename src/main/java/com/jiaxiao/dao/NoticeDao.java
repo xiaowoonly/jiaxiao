@@ -8,4 +8,6 @@ import java.util.List;
 public interface NoticeDao {
 
     List<Notice> findAllNotice();
+
+    List<Notice> getNoticeByName(Notice notice);
 }

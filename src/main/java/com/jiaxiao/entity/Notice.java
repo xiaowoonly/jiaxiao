@@ -4,25 +4,25 @@ import java.util.Date;
 
 public class Notice {
 
-    private String noticeid;
-    private String name;
+    private String id;
+    private String title;
     private Date created;
-    private int type;
+    private String publish_name;
 
-    public String getNoticeid () {
-        return noticeid;
+    public String getId () {
+        return id;
     }
 
-    public void setNoticeid (String noticeid) {
-        this.noticeid = noticeid;
+    public void setId (String id) {
+        this.id = id;
     }
 
-    public String getName () {
-        return name;
+    public String getTitle () {
+        return title;
     }
 
-    public void setName (String name) {
-        this.name = name;
+    public void setTitle (String title) {
+        this.title = title;
     }
 
     public Date getCreated () {
@@ -33,11 +33,11 @@ public class Notice {
         this.created = created;
     }
 
-    public int getType () {
-        return type;
+    public String getPublish_name () {
+        return publish_name;
     }
 
-    public void setType (int type) {
-        this.type = type;
+    public void setPublish_name (String publish_name) {
+        this.publish_name = publish_name;
     }
 }

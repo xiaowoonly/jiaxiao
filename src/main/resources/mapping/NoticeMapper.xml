@@ -2,27 +2,37 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jiaxiao.dao.NoticeDao">
     <resultMap id="BaseResultMap" type="com.jiaxiao.entity.Notice" >
-        <id column="noticeid" property="noticeid" jdbcType="INTEGER" />
-        <result column="name" property="name" jdbcType="VARCHAR" />
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="title" property="title" jdbcType="VARCHAR" />
         <result column="created" property="created" jdbcType="DATE" />
-        <result column="type" property="type" jdbcType="INTEGER" />
+        <result column="publish_name" property="publish_name" jdbcType="INTEGER" />
     </resultMap>
 
-    <sql id="BASE_TABLE">
+    <!--<sql id="BASE_TABLE">
         notice
     </sql>
 
     <sql id="BASE_COLUMN">
         noticeid, `name`, created, `type`
-    </sql>
+    </sql>-->
 
     <!--查询所有公告 -->
     <select id="findAllNotice" resultType="com.jiaxiao.entity.Notice">
         SELECT
-        <include refid="BASE_COLUMN"/>
+        *
         FROM
-        <include refid="BASE_TABLE"/>
+        notice
 
+    </select>
+
+    <!--查询所有公告 -->
+    <select id="getNoticeByName" resultType="com.jiaxiao.entity.Notice" parameterType="com.jiaxiao.entity.Notice">
+        SELECT
+          *
+        FROM
+          notice
+        where
+          publish_name = #{publish_name}
     </select>
 <!--
     <select id="checkUser" parameterType="com.jiaxiao.entity.User" resultType="java.lang.Integer">

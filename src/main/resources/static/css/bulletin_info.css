@@ -1,0 +1,35 @@
+﻿*{ padding: 0px; margin: 0px;}
+body{ font-family: "微软雅黑"; font-size: 14px;}
+ul{ padding: 0px; margin: 0px;}
+li{ list-style-type: none;}
+a {outline-style:none; color:#000; text-decoration:none;}
+a:hover{color: #000000;}
+h1, h2, h3, h4, h5, h6,span,img{padding: 0px; margin: 0px;}
+.t-top{ height: 44px; background: #2576db; text-align: center;font-size:16px; color: #FFF; line-height: 44px; overflow:hidden;}
+.t-top a{ float: left; padding: 2px 0px 0px 10px;}
+.t-main{ width: 100%; height: 100%; clear: both; }
+.t-main img{ width:90%; display: block; vertical-align: middle; padding:0px 10px; }
+.t-main2{ width: 100%; height: 100%; }
+.t-main2 img{ width:100%; display: block; vertical-align: middle; clear: both; }
+.t-main1{ margin: 0px 10px;}
+.t-main1 span{  border-bottom: 1px solid #d3d3d3; line-height: 28px; font-size: 16px; display:block;}
+.name-input{ border: 1px solid #D3D3D3; height: 30px; width: 71%; font-size: 16px; }
+.address-input{ border: 1px solid #D3D3D3; height: 30px; width: 71%; font-size: 16px;}
+.square-input{ border: 1px solid #D3D3D3; height: 30px; width: 30%;font-size: 16px;}
+.house-input{ border: 1px solid #D3D3D3; height: 30px; width: 30%;font-size: 16px;}
+.t-main1-list{ padding-left: 10px;padding-top: 20px;}
+.t-main1-list span{ color: #a4150d; float:left; line-height:32px;}
+.subbtn{width:35px;  margin:15px 10px; height:35px; display: block; background: #c6010f; text-align:center; line-height:35px; color:#FFF; font-size: 15px; }
+.subbtn img{ vertical-align: middle; }
+
+.btn{ width:100%; height:3em; line-height:3em; border-radius:0.3em; cursor:pointer; color:#fff; text-align:center; background:#ea5252; display:block; margin:1em 0; }
+
+.selcet-input{ clear: both; border: 1px solid #D3D3D3; height: 25px; width: 15%; }
+.t-nav{clear: both; z-index: 9999; background:#c6010f ; position: absolute; width: 100%;}
+.t-nav a{ color: #FFF;width: 100%;  text-align: center; font-size:16px; }
+.job-select{border-radius: 3px; border: 1px solid #D3D3D3; height: 30px; width:40%;font-size: 16px;}
+.content{  line-height: 22px; text-indent: 24px; padding-bottom:30px ;}
+.content div{ line-height:38px; display: block; height: 38px; }
+.content p{  color: #5b5b5b; font-size: 12px;}
+.content a{ color: #5b5b5b; text-indent: 24px; font-size: 12px; display: block;}
+.t-main1-list label{ width:70px; float:left; line-height:32px;}
