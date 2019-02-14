@@ -31,7 +31,7 @@ body{
     position: absolute;  
 	top: 0;
 	left: 0.3rem;
-	background:url(images/left.png) no-repeat;
+	background:url(static/images/left.png) no-repeat;
     width: 0.2rem;
     height:0.4rem;
     margin-top: 0.34rem;
@@ -125,7 +125,7 @@ body{
 
 .msg_input{
 	position: absolute;
-	background: url(images/msg-input.png) no-repeat;
+	background: url(static/images/msg-input.png) no-repeat;
 	background-size: 0.31rem auto;
 	width: 0.31rem;
 	height: 0.51rem;
@@ -154,9 +154,9 @@ body{
 	padding: 0.3rem 0.5rem;
 	font-size: 0.28rem;
 }
-.alert_novip p,.flower_num  p{
+.alert_novip p,.flower_num  p {
 	margin-bottom: 0.45rem;
-
+}
 .layui-layer-wrap button{
 	font-size: 0.28rem;
 	padding: 0.2rem 0.3rem;
@@ -164,7 +164,7 @@ body{
 	background: #f8f8f8;
 	border-radius: 10px;
 }
-}
+
 .flower_num button{
 	padding: 0.2rem 0.5rem;
 	border-radius: 10px;
