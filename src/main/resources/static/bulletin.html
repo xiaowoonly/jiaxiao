@@ -42,12 +42,12 @@
 
 <div class="_main_section">
     <ul id="ul">
-        <a href="bulletinInfo.html"><li>
+       <!-- <a href="bulletinInfo.html"><li>
             gogngaoyier
         </li></a>
         <a href="bulletinInfo.html"><li>
             子不放在下面
-        </li></a>
+        </li></a>-->
 
     </ul>
 </div>
@@ -77,7 +77,7 @@
 <script>
     $(function(){
         var username = sessionStorage.getItem("username");
-        alert(username);
+        // alert(username);
         var params ={};
         params.publish_name = username;
         $.ajax({
@@ -103,7 +103,7 @@
         var type = 0;
         for (var i = 0; i < data.length; i++) {
             //拼接一下
-           str = "<a href=\"bulletinInfo.html\"><li id =" + data[i].id + ">\n" +
+           str = "<a href=\"bulletinInfo.html?id=" + data[i].id +"\"><li id =" + data[i].id + ">\n" +
                 data[i].title +
                 "</li></a>"
             // alert(data[i].title);

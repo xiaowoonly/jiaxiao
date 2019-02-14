@@ -36,7 +36,40 @@ public class NoticeServiceImpl implements NoticeService {
      */
     @Override
     public List<Notice> getNoticeByName(Notice notice){
-
         return noticeDao.getNoticeByName (notice);
+    }
+
+    /**
+     * 根据id查公告
+     * @param notice
+     * @return
+     */
+    @Override
+    public String getNoticeById(Notice notice){
+        return noticeDao.getNoticeById (notice);
+    }
+
+    /**
+     * 修改公告
+     * @param notice
+     */
+    public void updateNotice (Notice notice){
+        noticeDao.updateNotice (notice);
+    }
+
+    /**
+     * 添加公告
+     * @param notice
+     */
+    public void addNotice (Notice notice){
+        noticeDao.addNotice (notice);
+    }
+
+    /**
+     * 删除公告
+     * @param notice
+     */
+    public void deleteNotice (Notice notice){
+        noticeDao.deleteNotice (notice);
     }
 }

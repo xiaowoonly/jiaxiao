@@ -52,5 +52,40 @@ public class NoticeController {
         return listJson;
     }
 
+    /**
+     * 根据单个id查所发公告
+     * @param notice
+     * @return
+     */
+    @RequestMapping(value = "/goUpdateNoticePage",method = RequestMethod.POST )
+    @ResponseBody
+    public String goNoticePage(@RequestBody Notice notice){
+        String str = noticeService.getNoticeById(notice);
+        String json = JSONObject.toJSONString(str);
+
+        return json;
+    }
+
+    @RequestMapping(value = "/updateNotice",method = RequestMethod.POST,consumes="application/json;charset=UTF-8" )
+    @ResponseBody
+    public Object updateNotice(@RequestBody Notice notice){
+        noticeService.updateNotice(notice);
+        return "1";
+    }
+
+    @RequestMapping(value = "/addNotice",method = RequestMethod.POST,consumes="application/json;charset=UTF-8" )
+    @ResponseBody
+    public Object addNotice(@RequestBody Notice notice){
+        noticeService.addNotice(notice);
+        return "1";
+    }
+
+    @RequestMapping(value = "/deleteNotice",method = RequestMethod.POST,consumes="application/json;charset=UTF-8" )
+    @ResponseBody
+    public Object deleteNotice(@RequestBody Notice notice){
+        noticeService.deleteNotice(notice);
+        return "1";
+    }
+
 
 }

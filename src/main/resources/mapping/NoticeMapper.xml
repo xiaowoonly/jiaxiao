@@ -8,20 +8,20 @@
         <result column="publish_name" property="publish_name" jdbcType="INTEGER" />
     </resultMap>
 
-    <!--<sql id="BASE_TABLE">
+    <sql id="BASE_TABLE">
         notice
     </sql>
 
     <sql id="BASE_COLUMN">
-        noticeid, `name`, created, `type`
-    </sql>-->
+        id, `title`, created, publish_name
+    </sql>
 
     <!--查询所有公告 -->
     <select id="findAllNotice" resultType="com.jiaxiao.entity.Notice">
         SELECT
-        *
+        <include refid="BASE_COLUMN"/>
         FROM
-        notice
+        <include refid="BASE_COLUMN"/>
 
     </select>
 
@@ -34,6 +34,48 @@
         where
           publish_name = #{publish_name}
     </select>
+
+    <!--查询所有公告 -->
+    <select id="getNoticeById" parameterType="com.jiaxiao.entity.Notice" resultType="java.lang.String">
+        SELECT
+          title
+        FROM
+          notice
+        where
+          id = #{id}
+    </select>
+
+    <update id="updateNotice" parameterType="com.jiaxiao.entity.Notice">
+		UPDATE
+          notice
+		SET
+		  title = #{title},
+		  created = NOW()
+		where
+          id = #{id}
+	</update>
+
+    <insert id="addNotice" parameterType="com.jiaxiao.entity.Notice">
+        INSERT INTO
+          notice
+        (
+		  `title`,
+		  `created`,
+		  `publish_name`
+        )
+        VALUES
+        (
+          #{title},
+          NOW(),
+          #{publish_name}
+        )
+
+
+    </insert>
+
+    <delete id="deleteNotice" parameterType="com.jiaxiao.entity.Notice">
+        DELETE FROM notice WHERE id= #{id}
+    </delete>
 <!--
     <select id="checkUser" parameterType="com.jiaxiao.entity.User" resultType="java.lang.Integer">
       SELECT

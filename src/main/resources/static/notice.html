@@ -148,22 +148,22 @@
         var type = 0;
         for (var i = 0; i < data.length; i++) {
             getMyDate(parseInt(data));
-            if(1 == data[i].type){
+
+            //拼接一下
+            str = "<li class=\"am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_hd_list\">"
+                + "<a class=\"pet_hd_block\">"
+                + "<div class=\"pet_hd_block_title\">" + data[i].title + "</div>"
+                + "<div class=\"pet_hd_block_tag\"><span class=\"hd_tag_jh\">管理员</span> " + getMyDate(data[0].created) + "</div>"
+                + "</a>"
+                + "</li>"
+            //追加到table中
+            $("#ul").append(str);
+
+            /*if(2 == data[i].type){
                 //拼接一下
                 str = "<li class=\"am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_hd_list\">"
                     + "<a class=\"pet_hd_block\">"
-                    + "<div class=\"pet_hd_block_title\">" + data[i].name + "</div>"
-                    + "<div class=\"pet_hd_block_tag\"><span class=\"hd_tag_jh\">管理员</span> " + getMyDate(data[0].created) + "</div>"
-                    + "</a>"
-                    + "</li>"
-                //追加到table中
-                $("#ul").append(str);
-            }
-            if(2 == data[i].type){
-                //拼接一下
-                str = "<li class=\"am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_hd_list\">"
-                    + "<a class=\"pet_hd_block\">"
-                    + "<div class=\"pet_hd_block_title\">" + data[i].name + "</div>"
+                    + "<div class=\"pet_hd_block_title\">" + data[i].title + "</div>"
                     + "<div class=\"pet_hd_block_tag\"><span class=\"hd_tag_js\">教师</span> " + getMyDate(data[0].created) + "</div>"
                     + "</a>"
                     + "</li>"
@@ -174,13 +174,13 @@
                 //拼接一下
                 str = "<li class=\"am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_hd_list\">"
                     + "<a class=\"pet_hd_block\">"
-                    + "<div class=\"pet_hd_block_title\">" + data[i].name + "</div>"
+                    + "<div class=\"pet_hd_block_title\">" + data[i].title + "</div>"
                     + "<div class=\"pet_hd_block_tag\"><span class=\"hd_tag_jz\">家长</span> " + getMyDate(data[0].created) + "</div>"
                     + "</a>"
                     + "</li>"
                 //追加到table中
                 $("#ul").append(str);
-            }
+            }*/
         }
     }
 

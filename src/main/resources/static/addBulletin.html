@@ -24,46 +24,19 @@
 </div>
 
 <div>
-    <a id="toUpdate" class="btn" onclick=toUpdate() >确定修改</a>
-    <a id="toDelete" class="btn" onclick=toDelete() >确定删除</a>
+    <a id="toAdd" class="btn" onclick=toAdd() >确定</a>
 </div>
 </body>
 <script>
 
-    $(function(){
-        var id = parseInt(UrlParam.paramValues("id"));
-        console.log(id);
-        var params ={};
-        params.id = id;
-        $.ajax({
-            url: "/notice/goUpdateNoticePage",
-            type: 'POST',
-            dataType: "json",
-            contentType: 'application/json',
-            data: JSON.stringify(params),
-            success: function(data){
-                var json = JSON.stringify(data);
-                // showData(data);//数据展示
-                // document.getElementById('title').value = json;
-                document.getElementById('title').value = data;
-                console.log(data);
-                console.log(json);
-            },
-            error: function(msg){
-                alert("ajax连接异常："+msg);
-            }
-        });
-    });
-
-    function toUpdate(){
+    function toAdd(){
         var title = document.getElementById("title").value;
-        var id = parseInt(UrlParam.paramValues("id"));
-        console.log(id);
+        var publish_name = sessionStorage.getItem("username");
         var params ={};
-        params.id = id;
         params.title = title;
+        params.publish_name = publish_name;
         $.ajax({
-            url: "/notice/updateNotice",
+            url: "/notice/addNotice",
             type: 'POST',
             dataType: "json",
             contentType: 'application/json',
@@ -72,7 +45,7 @@
                 console.log(data);
                 // alert("1111111");
                 if(data===1) {
-                    alert("修改成功");
+                    alert("添加成功");
                     window.location.href='bulletin.html';
                 }
             },
