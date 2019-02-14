@@ -19,7 +19,7 @@
     <!--查询所有公告 -->
     <select id="findAllNotice" resultType="com.jiaxiao.entity.Notice">
         SELECT
-        <include refid="BASE_COLUMN"/>
+        <include refid="BASE_TABLE"/>
         FROM
         <include refid="BASE_COLUMN"/>
 
