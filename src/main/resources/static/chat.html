@@ -51,7 +51,10 @@
 
 		//接收到消息的回调方法
 		websocket.onmessage = function (event) {
-			send("images/touxiangm.png", event.data);
+			var received_msg = event.data;
+			var obj = JSON.parse(received_msg);
+
+			send("images/touxiangm.png", obj.textMessage);
 		};
 
 		websocket.onclose = function () {
