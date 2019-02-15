@@ -22,7 +22,7 @@
 		</div>
 		<div class="footer">
 			<img src="images/hua.png" alt="" />
-			<input type="text"  />
+			<input type="text"  id="text"  />
 			<p>发送</p>
 		</div>
 
@@ -66,6 +66,25 @@
 		//关闭WebSocket连接
 		function closeWebSocket() {
 			websocket.close();
+		}
+
+		function sendMessage(text) {
+			var selectText;
+			alert(user);
+			if(user=="Rose"){
+				selectText="Jack";
+			}else{
+				selectText="Rose";
+			}
+
+			var message = {
+				"message":text,
+				"username":user,
+				"to":selectText
+			};
+			websocket.send(JSON.stringify(message));
+			$("#text").val("");
+
 		}
 
 	</script>

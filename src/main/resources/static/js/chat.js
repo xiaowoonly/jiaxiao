@@ -34,6 +34,7 @@ $(function () {
     $('.footer p').click(function () {
         show("images/touxiangm.png", $(this).prev().val());
         test();
+        sendMessage($(this).prev().val());
     })
 });
 
