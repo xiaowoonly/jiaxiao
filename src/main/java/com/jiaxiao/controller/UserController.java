@@ -54,7 +54,7 @@ public class UserController {
        List<User> li = userService.getPersonInfo(user);   //获取个人信息
        List<Student>list = userService.getStudentInfo(li.get(0).getStuno());  //获取学生信息
 
-       list.get(0).setParentName(li.get(0).getName());
+       list.get(0).setParentName(li.get(0).getRealname());
        list.get(0).setParentPhone(li.get(0).getUsername());
 
        return list;
@@ -65,7 +65,7 @@ public class UserController {
     public int updateinfo(@RequestBody Student student){
         //更新个人信息
         User user = new User();
-        user.setName(student.getParentName());
+        user.setRealname(student.getParentName());
         user.setUsername(student.getParentPhone());
         userService.updatePersonInfo(user);
         //更新学生信息

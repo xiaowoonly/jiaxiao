@@ -30,11 +30,16 @@ public class RegisterController {
     @ResponseBody
     public int register(@RequestBody User user){
 
-        List<Student> list;
-        list = userService.getStudentInfo(user.getStuno());
+        int type =user.getType();
+        if(type==2){
+            List<Student> list;
+            list = userService.getStudentInfo(user.getStuno());
 
-        if (null == list || list.size() ==0  ){
-            return 2;  //不存在该学生
+            if (null == list || list.size() ==0  ){
+                return 2;  //不存在该学生
+            }
+        }else{
+            user.setStuno("0");
         }
 
         List<User> li;

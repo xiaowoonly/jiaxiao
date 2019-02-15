@@ -6,24 +6,8 @@ public class User {
     private String password;
     private String username;
     private String stuno;
-    private String name;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-    public String getStuno() {
-        return stuno;
-    }
-
-    public void setStuno(String stuno) {
-        this.stuno = stuno;
-    }
+    private String realname;
+    private int type;
 
     public Long getId() {
         return id;
@@ -47,5 +31,29 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getStuno() {
+        return stuno;
+    }
+
+    public void setStuno(String stuno) {
+        this.stuno = stuno;
+    }
+
+    public String getRealname() {
+        return realname;
+    }
+
+    public void setRealname(String realname) {
+        this.realname = realname;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 }

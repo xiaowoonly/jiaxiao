@@ -55,14 +55,17 @@
 		(
 			`username`,
 			`password`,
-			`stuno`
+			`stuno`,
+            `realname`,
+            `type`
 		)
 		VALUES
 		(
-			#{password},
+			#{username},
         #{password},
-        #{stuno}
-
+        #{stuno},
+        #{realname},
+        #{type}
 		)
 	</insert>
 
