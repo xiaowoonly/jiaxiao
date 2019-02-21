@@ -23,10 +23,8 @@ public class LoginController {
         String password =user.getPassword();
         int count = userService.checkUser(user);
         if(0 != count){
-            System.out.println("登录成功");
             return "0";
         }
-        System.out.println("登录失败");
         return "1";
     }
 
