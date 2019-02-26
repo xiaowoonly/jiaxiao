@@ -45,9 +45,9 @@
         <a href="password.html"><li>
             <span class="pic"><img src="images/icon_password.png"></span>修改密码
         </li></a>
-        <a href="addBulletin.html"><li>
+       <!-- <a href="addBulletin.html"><li>
             <span class="pic"><img src="images/person/3_main_icon_wddt.png"></span>发布公告
-        </li></a>
+        </li></a>-->
     </ul>
 </div>
 <footer>
@@ -74,5 +74,22 @@
 </footer>
 
 <script src="js/script.js"></script>
+<script>
+
+    $(function(){
+        var type = sessionStorage.getItem("type");
+        console.log(type == '1');
+        if (type == '1') {
+            //拼接一下
+            str = "<a href=\"addBulletin.html\"><li>\n" +
+                "       <span class=\"pic\"><img src=\"images/person/3_main_icon_wddt.png\"></span>发布公告\n" +
+                "  </li></a>";
+            //追加到ul中
+            $("div._main_section ul").append(str);
+        }
+    });
+
+
+</script>
 </body>
 </html>

@@ -76,29 +76,33 @@
 
 <script>
     $(function(){
-
-
-
-        var username = sessionStorage.getItem("username");
-        // alert(username);
-        var params ={};
-        params.publish_name = username;
-        $.ajax({
-            url: "/notice/getNotice",
-            type: 'POST',
-            dataType: "json",
-            contentType: 'application/json',
-            data: JSON.stringify(params),
-            success: function(data){
-                var json = JSON.stringify(data);
-                showData(data);//数据展示
-                console.log(data);
-            },
-            error: function(msg){
-                alert("ajax连接异常："+msg);
-            }
-        });
+        var type = sessionStorage.getItem("type");
+        console.log(type == '1');
+        if (type == '1') {
+            var username = sessionStorage.getItem("username");
+            // alert(username);
+            var params ={};
+            params.publish_name = username;
+            $.ajax({
+                url: "/notice/getNotice",
+                type: 'POST',
+                dataType: "json",
+                contentType: 'application/json',
+                data: JSON.stringify(params),
+                success: function(data){
+                    var json = JSON.stringify(data);
+                    showData(data);//数据展示
+                    console.log(data);
+                },
+                error: function(msg){
+                    alert("ajax连接异常："+msg);
+                }
+            });
+        } else {
+            alert("没有所发布的公告");
+        }
     });
+
 
     //展示数据
     function showData(data) {

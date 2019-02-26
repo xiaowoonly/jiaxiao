@@ -83,12 +83,14 @@ public class UserController {
      * 查询所有好友信息
      * @return
      */
-    @RequestMapping(value = "/getNotice",method = RequestMethod.POST )
+    @RequestMapping(value = "/getFriend",method = RequestMethod.POST )
     @ResponseBody
-    public String getNoticeByName(@RequestBody User user){
+    public String getFriend(@RequestBody User user){
         List<User> str = userService.getFriend(user);
         String listJson = JSONObject.toJSONString(str);
 
         return listJson;
     }
+
+
 }

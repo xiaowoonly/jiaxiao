@@ -64,4 +64,14 @@ public class UserServiceImpl implements UserService {
         return userDao.updateStuInfo(student);
      }
 
+    /**
+     * 查好友
+     * @param user
+     * @return
+     */
+    @Override
+    public  List<User> getFriend(User user){
+        return  userDao.getFriend(user);
+    }
+
 }
