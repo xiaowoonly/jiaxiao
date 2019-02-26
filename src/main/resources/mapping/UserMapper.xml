@@ -102,7 +102,7 @@
         *
       FROM
         <include refid="BASE_TABLE"/>
-      WHERE `type` = #{type}
+      WHERE `type` &lt;&gt; #{type} AND `type` is not null
     </select>
 
   <!--  <delete id="mingzi" parameterType="java.lang.Integer">
