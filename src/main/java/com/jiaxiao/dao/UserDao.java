@@ -18,5 +18,6 @@ public interface UserDao {
 
     int updatePersonInfo(User user);
     int updateStuInfo(Student student);
+    int getUserType(User user);
     List<User> getFriend(User user);
 }
