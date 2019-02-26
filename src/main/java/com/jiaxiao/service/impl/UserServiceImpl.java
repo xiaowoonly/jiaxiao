@@ -64,6 +64,11 @@ public class UserServiceImpl implements UserService {
         return userDao.updateStuInfo(student);
      }
 
+     @Override
+     public int getUserType(User user){
+        return userDao.getUserType(user);
+     }
+
     /**
      * 查好友
      * @param user

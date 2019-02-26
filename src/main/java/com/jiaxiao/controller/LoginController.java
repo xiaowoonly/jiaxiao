@@ -28,7 +28,7 @@ public class LoginController {
         int count = userService.checkUser(user);
 
         if(count!=0){
-            status=userService.checkUser(user);
+            status=userService.getUserType(user);
         }
 
         if(status==1 || status==2){

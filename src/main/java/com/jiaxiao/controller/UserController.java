@@ -51,20 +51,20 @@ public class UserController {
     @ResponseBody
     @RequestMapping(value = "/studentInfo",method = RequestMethod.POST )
     public List<Student> getStudentInfo(@RequestBody User user){
-
-        int type =user.getType();
-
-        List<Student>list =null;
-
+        System.out.println("2222222222222");
         List<User> li = userService.getPersonInfo(user);   //获取个人信息
-
-        if (type==2){
-            list= userService.getStudentInfo(li.get(0).getStuno());  //获取学生信息
-        }
-
+        List<Student>list  = userService.getStudentInfo(li.get(0).getStuno());  //获取学生信息
         list.get(0).setParentName(li.get(0).getRealname());
         list.get(0).setParentPhone(li.get(0).getUsername());
-       return list;
+        return list;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/teacherInfo",method = RequestMethod.POST )
+    public List<User> getTeacherInfo(@RequestBody User user){
+        System.out.println(user.getUsername());
+        List<User> li = userService.getPersonInfo(user);   //获取个人信息
+        return li;
     }
 
     @ResponseBody
