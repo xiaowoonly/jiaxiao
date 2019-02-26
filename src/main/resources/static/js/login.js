@@ -39,8 +39,9 @@ $(function(){
                 contentType: 'application/json',
                 data: JSON.stringify(params),
                 success: function (data) {
-                    if(data===0) {
+                    if(data===1|| data===2) {
                         sessionStorage.setItem("username",username);
+                        sessionStorage.setItem("type",data);
                         window.location.href='home.html';
                     }
                     else{

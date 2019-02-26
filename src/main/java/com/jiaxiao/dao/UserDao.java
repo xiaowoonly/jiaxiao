@@ -18,6 +18,4 @@ public interface UserDao {
 
     int updatePersonInfo(User user);
     int updateStuInfo(Student student);
-
-    List<User> getFriend(User user);
 }

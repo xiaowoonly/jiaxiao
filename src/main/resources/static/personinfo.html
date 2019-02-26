@@ -58,8 +58,10 @@
 	$(function(){
 
 		var username = sessionStorage.getItem("username");
+		var type  = sessionStorage.getItem("type");
 		var params ={};
 		params.username = username;
+		params.username = type;
 
 		$.ajax({
 			url: "/user/studentInfo",

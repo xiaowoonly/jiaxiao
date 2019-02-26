@@ -19,13 +19,22 @@ public class LoginController {
     @RequestMapping(value = "/check",method = RequestMethod.POST,consumes="application/json;charset=UTF-8" )
     @ResponseBody
     public Object LoginCheck(@RequestBody User user){
+
+        int status=0;
+
         String userName =user.getUsername();
         String password =user.getPassword();
+
         int count = userService.checkUser(user);
-        if(0 != count){
-            return "0";
+
+        if(count!=0){
+            status=userService.checkUser(user);
         }
-        return "1";
+
+        if(status==1 || status==2){
+            return status;
+        }
+        return "0";
     }
 
 
