@@ -37,31 +37,37 @@
     </header>
     <!--  ----------------------------消息----------------------------->
 	<div class="main_xiaoxi">
-          <ul>
-					<!--<a href="chat.html?name=Rose"><li>
-                                <div class="head">s
-                                    <img src="images/xiaoxi/02.jpg">
-                                </div>
-                                <div class="new">
-                                    <div class="name">Rose</div>
-                                    <div class="autograph">年轻人背着铁斧过桥，忽然斧子掉河里...</div>
-                                </div>
-                                 <div class="time">11月28日</div>
-                    </li></a>  -->
-    	<!---->
-					<!--<a href="chat.html?name=Jack"><li>
-                                <div class="head">
-                                    <img src="image/xiaoxi/02.jpg">
-                                </div>
-                                <div class="new">
-                                    <div class="name">Jack</div>
-                                    <div class="autograph">年轻人背着铁斧过桥，忽然斧子掉河里...</div>
-                                </div>
-                                 <div class="time">11月28日</div>
-                    </li></a>  -->
-        <!---->             
+      <ul>
+        <!--  <a href="chat.html?name=Rose"><li>
+              <div class="head">
+                  <img src="images/xiaoxi/02.jpg">
+              </div>
+              <div class="new">
+                  <div class="name">Rose</div>
+              </div>
+          </li></a>-->
+       <!-- <a href="chat.html?name=Rose"><li>
+                    <div class="head">s
+                        <img src="images/xiaoxi/02.jpg">
+                    </div>
+                    <div class="new">
+                        <div class="name">Rose</div>
+                        <div class="autograph">年轻人背着铁斧过桥，忽然斧子掉河里...</div>
+                    </div>
+                     <div class="time">11月28日</div>
+        </li></a>-->
 
-          </ul>  
+       <!-- <a href="chat.html?name=Jack"><li>
+                    <div class="head">
+                        <img src="image/xiaoxi/02.jpg">
+                    </div>
+                    <div class="new">
+                        <div class="name">Jack</div>
+                        <div class="autograph">年轻人背着铁斧过桥，忽然斧子掉河里...</div>
+                    </div>
+                     <div class="time">11月28日</div>
+        </li></a>-->
+      </ul>
 	</div>
 
 
@@ -112,6 +118,7 @@ $(function(){
         success: function(data){
             var json = JSON.stringify(data);
             showFriend(data);//数据展示
+            alert(111);
             console.log(data);
         },
         error: function(msg){
@@ -122,7 +129,7 @@ $(function(){
 
 //展示数据
 function showFriend(data) {
-    alert(data.length);
+    // alert('111');
     var str = "";//定义用于拼接的字符串
     for (var i = 0; i < data.length; i++) {
         console.log(data.length);
