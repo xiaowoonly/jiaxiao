@@ -83,7 +83,7 @@ public class UserController {
      * 查询所有好友信息
      * @return
      */
-    @RequestMapping(value = "/getFriend",method = RequestMethod.POST )
+    @RequestMapping(value = "/getFriend",method = RequestMethod.POST,consumes="application/json;charset=UTF-8" )
     @ResponseBody
     public String getFriend(@RequestBody User user){
         List<User> str = userService.getFriend(user);

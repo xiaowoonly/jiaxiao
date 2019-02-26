@@ -111,7 +111,7 @@ $(function(){
         data: JSON.stringify(params),
         success: function(data){
             var json = JSON.stringify(data);
-            showData(data);//数据展示
+            showFriend(data);//数据展示
             console.log(data);
         },
         error: function(msg){
@@ -121,29 +121,29 @@ $(function(){
 });
 
 //展示数据
-function showData(data) {
+function showFriend(data) {
+    alert(data.length);
     var str = "";//定义用于拼接的字符串
-    var type = 0;
     for (var i = 0; i < data.length; i++) {
+        console.log(data.length);
         //拼接一下
-        str = "<a href=\"chat.html?name=Jack\"><li>\n" +
-            "                                <div class=\"head\">\n" +
-            "                                    <img src=\"image/xiaoxi/02.jpg\">\n" +
-            "                                </div>\n" +
-            "                                <div class=\"new\">\n" +
-            "                                    <div class=\"name\">Jack</div>\n" +
-            "                                    <div class=\"autograph\">年轻人背着铁斧过桥，忽然斧子掉河里...</div>\n" +
-            "                                </div>\n" +
-            "                                 <div class=\"time\">11月28日</div>\n" +
-            "                    </li></a> ";
+        str = "<a href=\"chat.html?name=" + data[i].username + "\"><li>\n" +
+            "       <div class=\"head\">\n" +
+            "           <img src=\"image/xiaoxi/02.jpg\">\n" +
+            "       </div>\n" +
+            "       <div class=\"new\">\n" +
+            "           <div class=\"name\">" + data[i].username + "</div>\n" +
+            "       </div>\n" +
+            "       <div class=\"time\">11月28日</div>\n" +
+            "</li></a> ";
 
 
-        str = "<a href=\"bulletinInfo.html?id=" + data[i].id +"\"><li id =" + data[i].id + ">\n" +
+       /* str = "<a href=\"bulletinInfo.html?id=" + data[i].id +"\"><li id =" + data[i].id + ">\n" +
             data[i].title +
-            "</li></a>"
+            "</li></a>"*/
         // alert(data[i].title);
         //追加到ul中
-        $("#ul").append(str);
+        $("div.main_xiaoxi ul").append(str);
     }
 }
 
