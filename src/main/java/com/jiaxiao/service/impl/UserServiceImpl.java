@@ -60,7 +60,18 @@ public class UserServiceImpl implements UserService {
         }
 
      @Override
-     public  int getUserType(User user){
-         return userDao.getUserType(user);
+     public int updateStuInfo(Student student){
+        return userDao.updateStuInfo(student);
      }
+
+    /**
+     * 查好友
+     * @param user
+     * @return
+     */
+    @Override
+    public  List<User> getFriend(User user){
+        return  userDao.getFriend(user);
+    }
+
 }

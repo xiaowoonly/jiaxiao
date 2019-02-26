@@ -97,6 +97,14 @@
         username = #{username}
     </update>
 
+    <select id="getFriend" parameterType="com.jiaxiao.entity.User" resultType="com.jiaxiao.entity.User">
+      SELECT
+        *
+      FROM
+        <include refid="BASE_TABLE"/>
+      WHERE `type` = #{type}
+    </select>
+
   <!--  <delete id="mingzi" parameterType="java.lang.Integer">
 		DELETE FROM
 		<include refid="BASE_TABLE"/> WHERE id=#{id}
