@@ -38,27 +38,27 @@
     <!--  ----------------------------消息----------------------------->
 	<div class="main_xiaoxi">
           <ul>
-					<a href="chat.html?name=Rose"><li>
-                                <div class="head">
-                                    <img src="../image/xiaoxi/02.jpg">
+					<!--<a href="chat.html?name=Rose"><li>
+                                <div class="head">s
+                                    <img src="images/xiaoxi/02.jpg">
                                 </div>
                                 <div class="new">
                                     <div class="name">Rose</div>
                                     <div class="autograph">年轻人背着铁斧过桥，忽然斧子掉河里...</div>
                                 </div>
                                  <div class="time">11月28日</div>
-                    </li></a>  
+                    </li></a>  -->
     	<!---->
-					<a href="chat.html?name=Jack"><li>
+					<!--<a href="chat.html?name=Jack"><li>
                                 <div class="head">
-                                    <img src="../image/xiaoxi/02.jpg">
+                                    <img src="image/xiaoxi/02.jpg">
                                 </div>
                                 <div class="new">
                                     <div class="name">Jack</div>
                                     <div class="autograph">年轻人背着铁斧过桥，忽然斧子掉河里...</div>
                                 </div>
                                  <div class="time">11月28日</div>
-                    </li></a>  
+                    </li></a>  -->
         <!---->             
 
           </ul>  
@@ -89,12 +89,66 @@
     </footer>
 </body>
 </html>
-    <script type="text/javascript">
-	/*搜索框清除*/
-		$('.main_contacts_search .cancel').click(function(e) {
-            $('.main_contacts_search input').val('')
-        });
-	</script>
+<script type="text/javascript">
+/*搜索框清除*/
+    $('.main_contacts_search .cancel').click(function(e) {
+        $('.main_contacts_search input').val('')
+    });
+
+//加载好友
+$(function(){
+    var username = sessionStorage.getItem("username");
+    var type = sessionStorage.getItem("type");
+    // alert(username);
+    var params ={};
+    params.username = username;
+    params.type = type;
+    $.ajax({
+        url: "/user/getFriend",
+        type: 'POST',
+        dataType: "json",
+        contentType: 'application/json',
+        data: JSON.stringify(params),
+        success: function(data){
+            var json = JSON.stringify(data);
+            showData(data);//数据展示
+            console.log(data);
+        },
+        error: function(msg){
+            alert("ajax连接异常："+msg);
+        }
+    });
+});
+
+//展示数据
+function showData(data) {
+    var str = "";//定义用于拼接的字符串
+    var type = 0;
+    for (var i = 0; i < data.length; i++) {
+        //拼接一下
+        str = "<a href=\"chat.html?name=Jack\"><li>\n" +
+            "                                <div class=\"head\">\n" +
+            "                                    <img src=\"image/xiaoxi/02.jpg\">\n" +
+            "                                </div>\n" +
+            "                                <div class=\"new\">\n" +
+            "                                    <div class=\"name\">Jack</div>\n" +
+            "                                    <div class=\"autograph\">年轻人背着铁斧过桥，忽然斧子掉河里...</div>\n" +
+            "                                </div>\n" +
+            "                                 <div class=\"time\">11月28日</div>\n" +
+            "                    </li></a> ";
+
+
+        str = "<a href=\"bulletinInfo.html?id=" + data[i].id +"\"><li id =" + data[i].id + ">\n" +
+            data[i].title +
+            "</li></a>"
+        // alert(data[i].title);
+        //追加到ul中
+        $("#ul").append(str);
+    }
+}
+
+
+</script>
 
 
 

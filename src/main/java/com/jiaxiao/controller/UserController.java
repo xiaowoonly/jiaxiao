@@ -1,5 +1,6 @@
 package com.jiaxiao.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.jiaxiao.entity.Student;
 import com.jiaxiao.entity.User;
 import com.jiaxiao.service.UserService;
@@ -71,5 +72,19 @@ public class UserController {
         //更新学生信息
        // userService.updateStuInfo(student);
         return 1;
+    }
+
+
+    /**
+     * 查询所有好友信息
+     * @return
+     */
+    @RequestMapping(value = "/getNotice",method = RequestMethod.POST )
+    @ResponseBody
+    public String getNoticeByName(@RequestBody User user){
+        List<User> str = userService.getFriend(user);
+        String listJson = JSONObject.toJSONString(str);
+
+        return listJson;
     }
 }

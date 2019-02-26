@@ -76,6 +76,9 @@
 
 <script>
     $(function(){
+
+
+
         var username = sessionStorage.getItem("username");
         // alert(username);
         var params ={};
@@ -103,7 +106,7 @@
         var type = 0;
         for (var i = 0; i < data.length; i++) {
             //拼接一下
-           str = "<a href=\"bulletinInfo.html?id=" + data[i].id +"\"><li id =" + data[i].id + ">\n" +
+            str = "<a href=\"bulletinInfo.html?id=" + data[i].id +"\"><li id =" + data[i].id + ">\n" +
                 data[i].title +
                 "</li></a>"
             // alert(data[i].title);
