@@ -118,8 +118,6 @@ $(function(){
         success: function(data){
             var json = JSON.stringify(data);
             showFriend(data);//数据展示
-            alert(111);
-            console.log(data);
         },
         error: function(msg){
             alert("ajax连接异常："+msg);
@@ -129,18 +127,16 @@ $(function(){
 
 //展示数据
 function showFriend(data) {
-    // alert('111');
     var str = "";//定义用于拼接的字符串
     for (var i = 0; i < data.length; i++) {
-        console.log(data.length);
         //拼接一下
         str = "<a href=\"chat.html?name=" + data[i].username + "\"><li>\n" +
             "       <div class=\"head\">\n" +
-            "           <img src=\"images/xiaoxi/02.jpg\">\n" +
+            "           <img src=\"images/person/01.jpg\">\n" +
             "       </div>\n" +
             "       <div class=\"new\">\n" +
-            "           <div class=\"name\">" + data[i].username + "</div>\n" +
-            "       </div>\n" +
+            "           <div class=\"name\">" + data[i].realname + "</div>\n" +
+            "        <div class=\"autograph\">"+"联系电话"+data[i].username+"</div></div>\n" +
             "</li></a> ";
 
 
