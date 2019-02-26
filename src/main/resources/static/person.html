@@ -32,9 +32,9 @@
     </ul>
 </nav>
 <!-- 主要内容 -->
-<ul class="sell">
+<ul class="sell" id="sell">
     <a href="person.html"><li><center><div class="wrap"><img src="images/person/iconfont-daqia0240.png">我的资料</div></center></li></a>
-    <a href="bulletin.html"><li><center><div class="wrap"><img src="images/person/5_main_icon_wdsc.png">发布的公告</div></center></li></a>
+    <!--<a href="bulletin.html"><li><center><div class="wrap"><img src="images/person/5_main_icon_wdsc.png">发布的公告</div></center></li></a>-->
 </ul>
 
 <div class="_main_section">
@@ -86,6 +86,9 @@
                 "  </li></a>";
             //追加到ul中
             $("div._main_section ul").append(str);
+            str1 = "<a href=\"bulletin.html\"><li><center><div class=\"wrap\"><img src=\"images/person/5_main_icon_wdsc.png\">发布的公告</div></center></li></a>";
+            //追加到ul中
+            $("#sell").append(str);
         }
     });
 
