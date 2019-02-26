@@ -16,5 +16,5 @@ public interface UserService {
     List<User> getPersonInfo(User user);
     List<Student> getStudentInfo(String stuNo);
     int updatePersonInfo(User user);
-    int updateStuInfo(Student student);
+    int getUserType(User user);
 }

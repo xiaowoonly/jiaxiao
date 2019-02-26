@@ -33,6 +33,14 @@
 
     </select>
 
+    <select id="getUserType" parameterType="com.jiaxiao.entity.User" resultType="java.lang.Integer">
+      SELECT
+        `type`
+      FROM
+        user
+      WHERE username = #{username}
+    </select>
+
     <select id="getPersonInfo" parameterType="com.jiaxiao.entity.User" resultType="com.jiaxiao.entity.User">
       SELECT
         *
@@ -78,20 +86,13 @@
 			username = #{username}
 	</update>
 
-    <update id="updateStuInfo"  parameterType="com.jiaxiao.entity.User">
-        UPDATE
-        <include refid="BASE_TABLE"/>
-        SET
-        `password` = #{password}
-        WHERE
-        username = #{username}
-    </update>
+
 
     <update id="updatePersonInfo"  parameterType="com.jiaxiao.entity.User">
         UPDATE
         <include refid="BASE_TABLE"/>
         SET
-        `name` = #{name},
+        `realname` = #{realname}
         WHERE
         username = #{username}
     </update>

@@ -51,12 +51,18 @@ public class UserController {
     @RequestMapping(value = "/studentInfo",method = RequestMethod.POST )
     public List<Student> getStudentInfo(@RequestBody User user){
 
-       List<User> li = userService.getPersonInfo(user);   //获取个人信息
-       List<Student>list = userService.getStudentInfo(li.get(0).getStuno());  //获取学生信息
+        int type =user.getType();
 
-       list.get(0).setParentName(li.get(0).getRealname());
-       list.get(0).setParentPhone(li.get(0).getUsername());
+        List<Student>list =null;
 
+        List<User> li = userService.getPersonInfo(user);   //获取个人信息
+
+        if (type==2){
+            list= userService.getStudentInfo(li.get(0).getStuno());  //获取学生信息
+        }
+
+        list.get(0).setParentName(li.get(0).getRealname());
+        list.get(0).setParentPhone(li.get(0).getUsername());
        return list;
     }
 
@@ -68,8 +74,6 @@ public class UserController {
         user.setRealname(student.getParentName());
         user.setUsername(student.getParentPhone());
         userService.updatePersonInfo(user);
-        //更新学生信息
-       // userService.updateStuInfo(student);
         return 1;
     }
 }
