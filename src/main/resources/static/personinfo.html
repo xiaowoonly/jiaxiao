@@ -59,7 +59,6 @@
 
 		var username = sessionStorage.getItem("username");
 		var type  = sessionStorage.getItem("type");
-		alert(type);
 		var adress ;
 		var params ={};
 		params.username = username;
@@ -95,29 +94,22 @@
 			}
 		});
 	});
+
 	function updateInfo(){
-		var name =	document.getElementById('stuName').value;
-		var gender =	document.getElementById('stuGender').value;
-		var address =	document.getElementById('stuAddress').value;
-		var phone =	document.getElementById('stuPhone').value;
 		var parentName =	document.getElementById('parentName').value;
 		var parentPhone =	document.getElementById('parentPhone').value;
 		var params ={};
-		params.name = name;
-		params.gender = gender;
-		params.address = address;
-		params.phone = phone;
 		params.parentName = parentName;
-		params.parentGender = parentGender;
 		params.parentPhone = parentPhone;
-
 		$.ajax({
-			url: "/user/studentInfo",
+			url: "/user/updateinfo",
 			type: 'POST',
 			dataType: "json",
 			contentType: 'application/json',
 			data: JSON.stringify(params),
 			success: function (data) {
+				console.log(data);
+				window.location.href='person.html';
 			},
 			error: function (data) {
 			}
