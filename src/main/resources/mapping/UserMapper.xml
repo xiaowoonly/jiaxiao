@@ -97,11 +97,11 @@
         username = #{username}
     </update>
 
-    <select id=" getFriend" parameterType="com.jiaxiao.entity.User" resultType="com.jiaxiao.entity.User">
+    <select id="getFriend" parameterType="com.jiaxiao.entity.User" resultType="com.jiaxiao.entity.User">
       SELECT
         *
       FROM
-        student
+        <include refid="BASE_TABLE"/>
       WHERE `type` = #{type}
     </select>
 
