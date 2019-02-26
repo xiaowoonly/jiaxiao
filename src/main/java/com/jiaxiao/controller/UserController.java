@@ -76,6 +76,19 @@ public class UserController {
         return 1;
     }
 
+    /**
+     * 查询所有好友信息
+     * @return
+     */
+    @RequestMapping(value = "/getPerson",method = RequestMethod.POST,consumes="application/json;charset=UTF-8" )
+    @ResponseBody
+    public String getPerson(@RequestBody User user){
+        List<User> str = userService.getPersonInfo(user);
+        String listJson = JSONObject.toJSONString(str);
+
+        return listJson;
+    }
+
 
     /**
      * 查询所有好友信息

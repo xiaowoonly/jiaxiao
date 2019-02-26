@@ -42,7 +42,25 @@ $(function(){
                     if(data===1|| data===2) {
                         sessionStorage.setItem("username",username);
                         sessionStorage.setItem("type",data);
-                        window.location.href='home.html';
+                        // window.location.href='home.html';
+                        $.ajax({
+                            url: "/user/getPerson",
+                            type: 'POST',
+                            dataType: "json",
+                            contentType: 'application/json',
+                            data: JSON.stringify(params),
+                            success: function(data){
+                                var json = JSON.stringify(data);
+                                //数据存入
+                                sessionStorage.setItem("realname", data[0].realname);
+                                sessionStorage.setItem("stuno", data[0].stuno);
+                                console.log(data);
+                                window.location.href='home.html';
+                            },
+                            error: function(msg){
+                                alert("ajax连接异常："+msg);
+                            }
+                        });
                     }
                     else{
                         alert("用户名或密码错误");

@@ -26,7 +26,7 @@
 
 <nav class="_main">
     <div class="head"><a href=""><img src="images/person/01.jpg"></a></div>
-    <div class="name"><center><span>随心</span></center></div>
+    <div class="name"><center><span> </span></center></div>
     <ul>
         <a href="person_fans.html"><li><div class="num">84</div> <div class="category">我的好友</div></li></a>
     </ul>
@@ -78,6 +78,9 @@
 
     $(function(){
         var type = sessionStorage.getItem("type");
+        var realname = sessionStorage.getItem("realname");
+        console.log(realname);
+        $(".name span").text(realname);
         console.log(type == '1');
         if (type == '1') {
             //拼接一下
