@@ -118,6 +118,7 @@ public class WebSocket {
             String textMessage = jsonObject.getString("message");
             String fromusername = jsonObject.getString("username");
             String tousername = jsonObject.getString("to");
+
             //如果不是发给所有，那么就发给某一个人
             //messageType 1代表上线 2代表下线 3代表在线名单  4代表普通消息
             Map<String,Object> map1 =new HashMap<String,Object>();

@@ -15,7 +15,7 @@
 
 	<body>
 		<header class="header">
-			<a class="back" href="javascript:history.back()"></a>
+			<a class="back" href="news.html"></a>
 			<h5 class="tit">聊天</h5>
 		</header>
 		<div class="message">
@@ -28,67 +28,7 @@
 
 	</body>
 	<script type="text/javascript">
-		var websocket =null;
-		var user = UrlParam.paramValues("name");
-		if ('WebSocket' in window) {
-			websocket = new WebSocket("ws://localhost:8080/websocket/"+user);
-		}
-		else {
-			alert('当前浏览器不支持websocket')
-		}
 
-
-		//连接发生错误的回调方法
-		websocket.onerror = function () {
-			console.log("Websocket连接错误");
-		};
-
-		//连接成功建立的回调方法
-		websocket.onopen = function () {
-			console.log("WebSocket连接成功");
-			show("images/touxiangm.png", "WebSocket连接成功");
-		};
-
-		//接收到消息的回调方法
-		websocket.onmessage = function (event) {
-			var received_msg = event.data;
-			var obj = JSON.parse(received_msg);
-
-			send("images/touxiangm.png", obj.textMessage);
-		};
-
-		websocket.onclose = function () {
-			console.log("关闭Websocket");
-		};
-
-		//监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
-		window.onbeforeunload = function () {
-			closeWebSocket();
-		};
-
-		//关闭WebSocket连接
-		function closeWebSocket() {
-			websocket.close();
-		}
-
-		function sendMessage(text) {
-			var selectText;
-			alert(user);
-			if(user=="Rose"){
-				selectText="Jack";
-			}else{
-				selectText="Rose";
-			}
-
-			var message = {
-				"message":text,
-				"username":user,
-				"to":selectText
-			};
-			websocket.send(JSON.stringify(message));
-			$("#text").val("");
-
-		}
 
 	</script>
 </html>
