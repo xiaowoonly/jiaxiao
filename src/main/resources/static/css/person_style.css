@@ -375,6 +375,7 @@ nav._main ul li .category {
 }
 ._main_section {
 	margin-bottom: 3.25rem;
+	text-indent:0.5em;
 }
 ._main_section ul li {
 	height: 100%;
