@@ -106,3 +106,66 @@ UrlParam = function() { // url参数
         }
     }
 }();
+
+
+
+var websocket =null;
+
+var user = UrlParam.paramValues("name");
+
+var username = sessionStorage.getItem("username");
+var Touser=user[0];
+console.log(Touser);
+if ('WebSocket' in window) {
+    websocket = new WebSocket("ws://localhost:8080/websocket/"+username);
+}
+else {
+    alert('当前浏览器不支持websocket')
+}
+
+
+//连接发生错误的回调方法
+websocket.onerror = function () {
+    console.log("Websocket连接错误");
+};
+
+//连接成功建立的回调方法
+websocket.onopen = function () {
+    console.log("WebSocket连接成功");
+    //show("images/touxiang.png", "WebSocket连接成功");
+};
+
+//接收到消息的回调方法
+websocket.onmessage = function (event) {
+    console.log(event);
+    var received_msg = event.data;
+    var obj = JSON.parse(received_msg);
+    if(obj.messageType==4){
+        send("images/touxiang.png", obj.textMessage);
+    }
+};
+
+websocket.onclose = function () {
+    console.log("关闭Websocket");
+};
+
+//监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
+window.onbeforeunload = function () {
+    closeWebSocket();
+};
+
+//关闭WebSocket连接
+function closeWebSocket() {
+    websocket.close();
+}
+
+function sendMessage(text) {
+    var message = {
+        "message":text,
+        "username":username,
+        "to":Touser
+    };
+    websocket.send(JSON.stringify(message));
+    $("#text").val("");
+
+}
