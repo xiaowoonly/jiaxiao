@@ -27,8 +27,13 @@
 
 <div class="list">
     <ul id="ul">
-        <li><p class="publish_title"><span class="hd_tag_jh">教师&nbsp;&nbsp;2019-01-09 20:08:07</span> &nbsp;&nbsp;我市2016年下半年大众创业我市2016年下半业..哈哈哈哈.&nbsp;</p></li>
+       <!-- <li><span class="hd_tag_jh" >教师&nbsp;&nbsp;2019-01-09 20:08:07</span>
+            <p class="publish_title">
+                &nbsp;&nbsp;我市2016年下半年大众创业我市2016年下半业..哈哈哈哈.&nbsp;
+            </p>
+        </li>
         <li><p class="publish_title"><span class="hd_tag_jh">教师&nbsp;&nbsp;2019-01-09 20:08:07</span> &nbsp;&nbsp;我市2016年下半年大众创业2016年大众创业我..哈哈哈哈.&nbsp;</p></li>
+   -->
     </ul>
 </div>
 <footer>
@@ -79,8 +84,12 @@
             getMyDate(parseInt(data));
             var time1 = new Date().Format("yyyy-MM-dd");
             var time =new Date().getTime();
-            str = "<li><p class=\"publish_title\"><span class=\"hd_tag_jh\">" + data[0].publish_name +"&nbsp;&nbsp;"
-                + getMyDate(data[0].created) +"</span>&nbsp;&nbsp;"+ data[0].title +"&nbsp;&nbsp;</p></li>\n";
+            str = "<li>"
+                    + "<span class=\"hd_tag_jh\">" + data[i].publish_name +"&nbsp;&nbsp;"
+                    + getMyDate(data[0].created) +"</span>"
+                    + "<p class=\"publish_title\">&nbsp;&nbsp;"+ data[i].title +"&nbsp;&nbsp;"
+                    + "</p>"
+                + "</li>\n";
             //追加到table中
             $("#ul").append(str);
         }

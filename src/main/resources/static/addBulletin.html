@@ -10,15 +10,15 @@
 <div class="t-top"><!--头部-->
     <a href="person.html"><img src="images/icon_return.png"></a>
     <div onMouseOut="$('#t-nav').hide();" onMouseOver="$('#t-nav').show();">
-        <span>公告</span>
+        <span>发布公告</span>
     </div>
 
 </div><!--头部-->
 
 <div class="t-main1">
-    <span>公告信息</span>
-    <div class="t-main1-list" >
-        <label>公告内容：</label><input type="text" id = "title" class="name-input" />
+  <!--  <span>公告信息</span>-->
+    <div class="t-main1-list" style="text-align: center;">
+        <span style="text-align: center;">公告信息</span><textarea id="title" rows="5" cols="40"></textarea>
     </div>
 
 </div>
@@ -30,7 +30,8 @@
 <script>
 
     function toAdd(){
-        var title = document.getElementById("title").value;
+        var title = $("#title").val();
+        console.log(title);
         var publish_name = sessionStorage.getItem("realname");
         var params ={};
         params.title = title;

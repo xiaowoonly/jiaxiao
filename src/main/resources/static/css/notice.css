@@ -61,12 +61,19 @@ body{
 	color:#494949;
 	}
 
-.list p span { display: inline-block; text-align: left; background: #f28d00; border-radius: 4px; width: 15em; height: 22px; line-height: 22px; color: #fff;}
-.list p span.hd_tag_jh { background: #00a0e9;}
-
-.list span{
+.list span {
 	font-size:0.8em;
-	/*float:right;*/}
+	text-align:center;
+	display: inline-block;
+	background: #f28d00;
+	vertical-align:middle;text-align:center;
+	border-radius: 4px;
+	width: 15em;
+	height: 22px;
+	line-height: 22px;
+	color: #fff;}
+.list span.hd_tag_jh { background: #00a0e9;}
+
 .foot{
 	margin-top:40%;
 	/*line-height:130px;*/

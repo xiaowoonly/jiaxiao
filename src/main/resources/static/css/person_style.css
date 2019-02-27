@@ -377,7 +377,7 @@ nav._main ul li .category {
 	margin-bottom: 3.25rem;
 }
 ._main_section ul li {
-	height: 1.1rem;
+	height: 100%;
 	border-bottom: 1px solid #ebebeb;
 	width: 100%;
 	padding: 0.5rem 0;

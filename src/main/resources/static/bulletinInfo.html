@@ -16,9 +16,9 @@
 </div><!--头部-->
 
 <div class="t-main1">
-    <span>公告信息</span>
     <div class="t-main1-list" >
-        <label>公告内容：</label><input type="text" id = "title" class="name-input" />
+        <!--<label>公告内容：</label><input type="text" id = "title" class="name-input" />-->
+        <span style="text-align: center;">公告内容</span><textarea id="title" rows="5" cols="40"></textarea>
     </div>
 
 </div>
@@ -45,7 +45,7 @@
                 var json = JSON.stringify(data);
                 // showData(data);//数据展示
                 // document.getElementById('title').value = json;
-                document.getElementById('title').value = data;
+                $("#title").val(data);
                 console.log(data);
                 console.log(json);
             },
