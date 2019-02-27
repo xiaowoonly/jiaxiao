@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="css/notice.css">
     <link rel="stylesheet" href="css/remen_style.css" type="text/css">
     <link rel="stylesheet" href="css/flickerplate.css" type="text/css">
-     <!--JavaScript Code -->
+    <!--JavaScript Code -->
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
 
@@ -26,9 +26,9 @@
 <div class="header"><p><a href=""><img src="images/button_03.png" class="left"/></a><span>公告</span></p></div>
 
 <div class="list">
-    <ul id="ul">
-        <li><p class="publish_title"><span class="hd_tag_jh">教师&nbsp;&nbsp;2019-01-09 20:08:07</span> &nbsp;&nbsp;我市2016年下半年大众创业我市2016年下半业..哈哈哈哈.&nbsp;</p></li>
-        <li><p class="publish_title"><span class="hd_tag_jh">教师&nbsp;&nbsp;2019-01-09 20:08:07</span> &nbsp;&nbsp;我市2016年下半年大众创业2016年大众创业我..哈哈哈哈.&nbsp;</p></li>
+    <ul>
+        <li><span>教师&nbsp;&nbsp;2016-5-06nbsp;&nbsp;我市2016年下半年大众创业我市2016年下半年大众创业我市2016年下半年大众创业我市.&nbsp;</span></li>
+        <li><span >&nbsp;&nbsp;除常规的漏洞修复外本次更新还增加多项安全防护措施，例如拦截存在欺诈广告的网站和虚假支付网站等等</span></li>
     </ul>
 </div>
 <footer>
@@ -77,12 +77,17 @@
         var str = "";//定义用于拼接的字符串
         for (var i = 0; i < data.length; i++) {
             getMyDate(parseInt(data));
-            var time1 = new Date().Format("yyyy-MM-dd");
             var time =new Date().getTime();
-            str = "<li><p class=\"publish_title\"><span class=\"hd_tag_jh\">" + data[0].publish_name +"&nbsp;&nbsp;"
-                + getMyDate(data[0].created) +"</span>&nbsp;&nbsp;"+ data[0].title +"&nbsp;&nbsp;</p></li>\n";
+            str = "";
+            str = "<li class=\"am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_hd_list\">"
+                + "<a class=\"pet_hd_block\">"
+                + "<div class=\"pet_hd_block_title\">" + data[i].title + "</div>"
+                + "<div class=\"pet_hd_block_tag\"><span class=\"hd_tag_jh\">教师</span> " + getMyDate(data[0].created) + "</div>"
+                + "</a>"
+                + "</li>"
             //追加到table中
             $("#ul").append(str);
+
         }
     }
 
@@ -107,24 +112,6 @@
         }
         return num;
     }
-
-    Date.prototype.Format = function (fmt) { // author: meizz
-        var o = {
-            "M+": this.getMonth() + 1, // 月份
-            "d+": this.getDate(), // 日
-            "h+": this.getHours(), // 小时
-            "m+": this.getMinutes(), // 分
-            "s+": this.getSeconds(), // 秒
-            "q+": Math.floor((this.getMonth() + 3) / 3), // 季度
-            "S": this.getMilliseconds() // 毫秒
-        };
-        if (/(y+)/.test(fmt))
-            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-        for (var k in o)
-            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
-        return fmt;
-    }
-
 
 </script>
 

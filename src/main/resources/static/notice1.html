@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+<head>
+    <title>公告</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- CSS Code -->
+    <link rel="stylesheet" href="css/remen_style.css" type="text/css">
+    <link rel="stylesheet" href="css/flickerplate.css" type="text/css">
+    <link rel="stylesheet" href="css/amazeui.min.css">
+    <link rel="stylesheet" href="css/wap.css">
+    <!-- JavaScript Code -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <script type="text/javascript" src="js/modernizr-custom-v2.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-finger-v0.1.0.min.js"></script>
+    <script type="text/javascript" src="js/flickerplate.min.js"></script>
+    <script type="text/javascript" src="js/jquery.lazyload.js"></script>
+    <script src="js/amazeui.min.js"></script>
+    <title>公告</title>
+</head>
+<body style="background:#ececec">
+<div class="pet_mian" >
+    <div class="pet_head">
+        <header id="title">
+
+            <div class="back" onclick="location.href='home.html'">
+
+            </div>
+
+            公告
+
+        </header>
+    </div>
+
+    <div class="pet_content pet_content_list pet_hd">
+        <div class="pet_article_like">
+            <div class="pet_content_main pet_article_like_delete">
+                <div data-am-widget="list_news" class="am-list-news am-list-news-default am-no-layout">
+                    <div class="am-list-news-bd">
+                        <ul class="am-list" id="ul">
+                            <!--缩略图在标题右边-->
+                            <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_hd_list">
+                                <a href="###" class="pet_hd_block">
+                                    <div class="pet_hd_block_title">go为啥子不放在下面你go为啥子不放在下面你</div>
+                                    <div class="pet_hd_block_tag"><span class="hd_tag_jh">筹备中</span> 10月20日 09:30 - 16:00 </div>
+                                </a>
+                            </li>
+
+                            <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_hd_list">
+                                <a class="pet_hd_block">
+                                    <div class="pet_hd_block_title">go为啥子不放在下面你go为啥子不放在下面你</div>
+                                    <div class="pet_hd_block_tag"><span class="hd_tag_js">教师</span> 10月20日 09:30 - 16:00</div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<footer>
+    <ul>
+        <a href="notice.html"><li class="active">
+            <img src="images/home/remen_xuanzhong.png" aria-hidden="true">公告
+        </li></a>
+        <a href="news.html"><li>
+            <img src="images/home/iconfont-news.png" aria-hidden="true">消息
+        </li></a>
+        <a href="home.html"><li class="main">
+            <div class="g_wrap">
+                <img src="images/home/main_icon.png" aria-hidden="true">
+
+            </div>
+        </li></a>
+        <a href="Timetable.html"><li>
+            <img src="images/home/icon_tansuo.png" aria-hidden="true">课程表
+        </li></a>
+        <a href="person.html"><li>
+            <img src="images/home/icon_personal.png" aria-hidden="true">我
+        </li></a>
+    </ul>
+</footer>
+
+<!--<script>
+    $(function(){
+
+        // 动态计算新闻列表文字样式
+        auto_resize();
+        $(window).resize(function() {
+            auto_resize();
+        });
+        $('.am-list-thumb img').load(function(){
+            auto_resize();
+        });
+        $('.pet_article_like li:last-child').css('border','none');
+        function auto_resize(){
+            $('.pet_list_one_nr').height($('.pet_list_one_img').height());
+            // alert($('.pet_list_one_nr').height());
+        }
+        $('.pet_article_user').on('click',function(){
+            if($('.pet_article_user_info_tab').hasClass('pet_article_user_info_tab_show')){
+                $('.pet_article_user_info_tab').removeClass('pet_article_user_info_tab_show').addClass('pet_article_user_info_tab_cloes');
+            }else{
+                $('.pet_article_user_info_tab').removeClass('pet_article_user_info_tab_cloes').addClass('pet_article_user_info_tab_show');
+            }
+        });
+
+        $('.pet_head_gd_ico').on('click',function(){
+            $('.pet_more_list').addClass('pet_more_list_show');
+        });
+        $('.pet_more_close').on('click',function(){
+            $('.pet_more_list').removeClass('pet_more_list_show');
+        });
+    });
+
+</script>-->
+<script>
+    $(function(){
+        $.ajax({
+            url: "/notice/list",
+            type: 'POST',
+            dataType: "json",
+            contentType: 'application/json',
+            success: function(data){
+                var json = JSON.stringify(data);
+                showData(data);//数据展示
+                console.log(data);
+            },
+            error: function(msg){
+                alert("ajax连接异常："+msg);
+            }
+        });
+    });
+
+    //展示数据
+    function showData(data) {
+        var str = "";//定义用于拼接的字符串
+        for (var i = 0; i < data.length; i++) {
+            getMyDate(parseInt(data));
+            var time =new Date().getTime();
+            // if("1" == sessionStorage.getItem("type")){
+            //拼接一下
+                str = "<li class=\"am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_hd_list\">"
+                    + "<a class=\"pet_hd_block\">"
+                    + "<div class=\"pet_hd_block_title\">" + data[i].title + "</div>"
+                    + "<div class=\"pet_hd_block_tag\"><span class=\"hd_tag_jh\">教师</span> " + getMyDate(data[0].created) + "</div>"
+                    + "</a>"
+                    + "</li>"
+                //追加到table中
+                $("#ul").append(str);
+            // }
+            /*if(time <= data[0].created){
+                //拼接一下
+                str = "<li class=\"am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_hd_list\">"
+                    + "<a class=\"pet_hd_block\">"
+                    + "<div class=\"pet_hd_block_title\">" + data[i].title + "</div>"
+                    + "<div class=\"pet_hd_block_tag\"><span class=\"hd_tag_jz\">已过期</span> " + getMyDate(data[0].created) + "</div>"
+                    + "</a>"
+                    + "</li>"
+                //追加到table中
+                $("#ul").append(str);
+            }*/
+            /*if(3 == data[i].type){
+                //拼接一下
+                str = "<li class=\"am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_hd_list\">"
+                    + "<a class=\"pet_hd_block\">"
+                    + "<div class=\"pet_hd_block_title\">" + data[i].title + "</div>"
+                    + "<div class=\"pet_hd_block_tag\"><span class=\"hd_tag_jz\">家长</span> " + getMyDate(data[0].created) + "</div>"
+                    + "</a>"
+                    + "</li>"
+                //追加到table中
+                $("#ul").append(str);
+            }*/
+        }
+    }
+
+    //格式化时间
+    function getMyDate(str) {
+        var oDate = new Date(str),
+            oYear = oDate.getFullYear(),
+            oMonth = oDate.getMonth()+1,
+            oDay = oDate.getDate(),
+            oHour = oDate.getHours(),
+            oMin = oDate.getMinutes(),
+            oSen = oDate.getSeconds(),
+            oTime = oYear +'-'+ addZero(oMonth) +'-'+ addZero(oDay) +' '+ addZero(oHour) +':'+
+                addZero(oMin) +':'+addZero(oSen);
+        return oTime;
+    }
+
+    //补零操作
+    function addZero(num){
+        if(parseInt(num) < 10){
+            num = '0'+num;
+        }
+        return num;
+    }
+
+</script>
+
+</body>
+</html>
