@@ -8,6 +8,7 @@ public class Notice {
     private String title;
     private Date created;
     private String publish_name;
+    private String realname;
 
     public String getId () {
         return id;
@@ -39,5 +40,13 @@ public class Notice {
 
     public void setPublish_name (String publish_name) {
         this.publish_name = publish_name;
+    }
+
+    public String getRealname () {
+        return realname;
+    }
+
+    public void setRealname (String realname) {
+        this.realname = realname;
     }
 }

@@ -5,8 +5,8 @@ $(function(){
     var type = sessionStorage.getItem("type");
     console.log(type == '1');
     if (type == '1') {
-        var username = sessionStorage.getItem("realname");
-        // alert(username);
+        var username = sessionStorage.getItem("username");
+        console.log(username);
         var params ={};
         params.publish_name = username;
         $.ajax({

@@ -2,27 +2,31 @@
 function toAdd(){
     var title = $("#title").val();
     console.log(title);
-    var publish_name = sessionStorage.getItem("username");
-    var params ={};
-    params.title = title;
-    params.publish_name = publish_name;
-    $.ajax({
-        url: "/notice/addNotice",
-        type: 'POST',
-        dataType: "json",
-        contentType: 'application/json',
-        data: JSON.stringify(params),
-        success: function (data) {
-            console.log(data);
-            // alert("1111111");
-            if(data===1) {
-                alert("添加成功");
-                window.location.href='bulletin.html';
+    if (title != null){
+        var publish_name = sessionStorage.getItem("username");
+        var params ={};
+        params.title = title;
+        params.publish_name = publish_name;
+        $.ajax({
+            url: "/notice/addNotice",
+            type: 'POST',
+            dataType: "json",
+            contentType: 'application/json',
+            data: JSON.stringify(params),
+            success: function (data) {
+                console.log(data);
+                // alert("1111111");
+                if(data===1) {
+                    alert("添加成功");
+                    window.location.href='bulletin.html';
+                }
+            },
+            error: function (data) {
             }
-        },
-        error: function (data) {
-        }
-    });
+        });
+    }else {
+        alert("请填写公告内容");
+    }
 
 }
 
