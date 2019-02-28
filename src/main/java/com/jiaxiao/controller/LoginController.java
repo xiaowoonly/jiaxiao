@@ -25,9 +25,6 @@ public class LoginController {
 
         int status=0;
 
-        String userName =user.getUsername();
-        String password =user.getPassword();
-
         int count = userService.checkUser(user);  //判断账号是否存在 0为不存在
 
         if(count!=0){
