@@ -2,7 +2,9 @@
 function toAdd(){
     var title = $("#title").val();
     console.log(title);
-    if (title != null){
+    if (title.replace(/\s*/g, "") == "" || title.replace(/\s*/g, "") == null){
+        alert("请填写公告内容");
+    }else {
         var publish_name = sessionStorage.getItem("username");
         var params ={};
         params.title = title;
@@ -24,8 +26,6 @@ function toAdd(){
             error: function (data) {
             }
         });
-    }else {
-        alert("请填写公告内容");
     }
 
 }
