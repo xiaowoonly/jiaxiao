@@ -14,6 +14,11 @@ public class TimeTablesServiceImpl implements TimeTablesService {
     @Autowired
     TimeTablesDao timeTablesDao;
 
+    /**
+     * 获取课程表信息
+     * @param timeTables
+     * @return
+     */
     @Override
     public String getCourse(TimeTables timeTables){
         return timeTablesDao.getCourse(timeTables);

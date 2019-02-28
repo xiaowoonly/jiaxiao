@@ -41,6 +41,7 @@
       WHERE username = #{username}
     </select>
 
+    <!-- 根据username查询信息 -->
     <select id="getPersonInfo" parameterType="com.jiaxiao.entity.User" resultType="com.jiaxiao.entity.User">
       SELECT
         *
@@ -97,6 +98,7 @@
         username = #{username}
     </update>
 
+    <!-- 获取好友信息 -->
     <select id="getFriend" parameterType="com.jiaxiao.entity.User" resultType="com.jiaxiao.entity.User">
       SELECT
         *

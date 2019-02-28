@@ -53,7 +53,7 @@ public class NoticeController {
     }
 
     /**
-     * 根据单个id查所发公告
+     * 修改页面
      * @param notice
      * @return
      */
@@ -66,6 +66,11 @@ public class NoticeController {
         return json;
     }
 
+    /**
+     * 修改公告
+     * @param notice
+     * @return
+     */
     @RequestMapping(value = "/updateNotice",method = RequestMethod.POST,consumes="application/json;charset=UTF-8" )
     @ResponseBody
     public Object updateNotice(@RequestBody Notice notice){
@@ -73,6 +78,11 @@ public class NoticeController {
         return "1";
     }
 
+    /**
+     * 添加公告
+     * @param notice
+     * @return
+     */
     @RequestMapping(value = "/addNotice",method = RequestMethod.POST,consumes="application/json;charset=UTF-8" )
     @ResponseBody
     public Object addNotice(@RequestBody Notice notice){
@@ -80,6 +90,11 @@ public class NoticeController {
         return "1";
     }
 
+    /**
+     * 删除公告
+     * @param notice
+     * @return
+     */
     @RequestMapping(value = "/deleteNotice",method = RequestMethod.POST,consumes="application/json;charset=UTF-8" )
     @ResponseBody
     public Object deleteNotice(@RequestBody Notice notice){

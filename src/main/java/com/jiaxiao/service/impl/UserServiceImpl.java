@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
      * */
     @Override
     public PageInfo<User> findAllUser(int pageNum, int pageSize) {
-        //将参数传给这个方法就可以实现物理分页了，非常简单。
+        //将参数传给这个方法就可以实现物理分页了
         PageHelper.startPage(pageNum, pageSize);
         List<User> user = userDao.selectUsers();
         PageInfo result = new PageInfo(user);
@@ -48,10 +48,16 @@ public class UserServiceImpl implements UserService {
         return  userDao.updatePwd(user);
     }
 
+    /**
+     * 根据参数查询user信息
+     * @param user
+     * @return
+     */
     @Override
     public  List<User> getPersonInfo(User user){
         return  userDao.getPersonInfo(user);
     }
+
     @Override
     public List<Student>getStudentInfo(String stuNo){return userDao.getStudentInfo(stuNo);}
     @Override
@@ -70,7 +76,7 @@ public class UserServiceImpl implements UserService {
      }
 
     /**
-     * 查好友
+     * 获取好友
      * @param user
      * @return
      */

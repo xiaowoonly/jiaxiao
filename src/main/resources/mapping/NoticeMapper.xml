@@ -25,7 +25,7 @@
 
     </select>
 
-    <!--查询所有公告 -->
+    <!-- 根据发布人查询所有公告 -->
     <select id="getNoticeByName" resultType="com.jiaxiao.entity.Notice" parameterType="com.jiaxiao.entity.Notice">
         SELECT
           *
@@ -35,7 +35,7 @@
           publish_name = #{publish_name}
     </select>
 
-    <!--查询所有公告 -->
+    <!-- 根据查询所有公告 -->
     <select id="getNoticeById" parameterType="com.jiaxiao.entity.Notice" resultType="java.lang.String">
         SELECT
           title
@@ -45,6 +45,7 @@
           id = #{id}
     </select>
 
+    <!-- 修改公告 -->
     <update id="updateNotice" parameterType="com.jiaxiao.entity.Notice">
 		UPDATE
           notice
@@ -55,6 +56,7 @@
           id = #{id}
 	</update>
 
+    <!-- 添加公告 -->
     <insert id="addNotice" parameterType="com.jiaxiao.entity.Notice">
         INSERT INTO
           notice
@@ -73,6 +75,7 @@
 
     </insert>
 
+    <!-- 删除公告 -->
     <delete id="deleteNotice" parameterType="com.jiaxiao.entity.Notice">
         DELETE FROM notice WHERE id= #{id}
     </delete>

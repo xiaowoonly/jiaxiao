@@ -33,7 +33,6 @@ public class UserController {
      * 更新密码
      * @return
      */
-
     @ResponseBody
     @RequestMapping(value = "/updatePwd",method = RequestMethod.POST )
     public int checkPwd(@RequestBody User user){
@@ -47,7 +46,6 @@ public class UserController {
      * 查询个人信息和学生信息
      * @return
      */
-
     @ResponseBody
     @RequestMapping(value = "/studentInfo",method = RequestMethod.POST )
     public List<Student> getStudentInfo(@RequestBody User user){
@@ -77,7 +75,7 @@ public class UserController {
     }
 
     /**
-     * 查询所有好友信息
+     * 根据username查询信息
      * @return
      */
     @RequestMapping(value = "/getPerson",method = RequestMethod.POST,consumes="application/json;charset=UTF-8" )
@@ -91,7 +89,7 @@ public class UserController {
 
 
     /**
-     * 查询所有好友信息
+     * 查询好友信息
      * @return
      */
     @RequestMapping(value = "/getFriend",method = RequestMethod.POST,consumes="application/json;charset=UTF-8" )
