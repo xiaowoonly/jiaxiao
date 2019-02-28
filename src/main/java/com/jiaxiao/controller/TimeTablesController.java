@@ -19,10 +19,9 @@ public class TimeTablesController {
 
 
     /**
-     * 获取课程
+     * 获取课程信息
      * @return
      */
-
     @RequestMapping(value = "/get",method = RequestMethod.POST )
     @ResponseBody
     public String getTimeTables(@RequestBody TimeTables timeTables){
