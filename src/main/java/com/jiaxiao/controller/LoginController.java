@@ -16,6 +16,9 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 登陆校验
+     */
     @RequestMapping(value = "/check",method = RequestMethod.POST,consumes="application/json;charset=UTF-8" )
     @ResponseBody
     public Object LoginCheck(@RequestBody User user){
@@ -25,10 +28,10 @@ public class LoginController {
         String userName =user.getUsername();
         String password =user.getPassword();
 
-        int count = userService.checkUser(user);
+        int count = userService.checkUser(user);  //判断账号是否存在 0为不存在
 
         if(count!=0){
-            status=userService.getUserType(user);
+            status=userService.getUserType(user);  //获取账号类型  1老师 2家长
         }
 
         if(status==1 || status==2){
