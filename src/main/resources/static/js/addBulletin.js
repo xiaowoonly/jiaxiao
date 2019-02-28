@@ -2,7 +2,7 @@
 function toAdd(){
     var title = $("#title").val();
     console.log(title);
-    var publish_name = sessionStorage.getItem("realname");
+    var publish_name = sessionStorage.getItem("username");
     var params ={};
     params.title = title;
     params.publish_name = publish_name;

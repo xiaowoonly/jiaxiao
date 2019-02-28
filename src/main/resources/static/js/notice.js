@@ -23,7 +23,7 @@ function showData(data) {
         var time1 = new Date().Format("yyyy-MM-dd");
         var time =new Date().getTime();
         str = "<li>"
-            + "<span class=\"hd_tag_jh\">" + data[i].publish_name +"&nbsp;&nbsp;"
+            + "<span class=\"hd_tag_jh\">" + data[i].realname +"&nbsp;&nbsp;"
             + getMyDate(data[0].created) +"</span>"
             + "<p class=\"publish_title\">&nbsp;&nbsp;"+ data[i].title +"&nbsp;&nbsp;"
             + "</p>"

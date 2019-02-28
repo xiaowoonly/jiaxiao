@@ -19,9 +19,17 @@
     <!--查询所有公告 -->
     <select id="findAllNotice" resultType="com.jiaxiao.entity.Notice">
         SELECT
-          <include refid="BASE_COLUMN"/>
+          n.id,
+          n.`title`,
+          n.created,
+          n.publish_name,
+          u.realname
         FROM
-          <include refid="BASE_TABLE"/>
+          notice n
+        INNER JOIN
+          user u
+        ON
+          u.username = n.publish_name
 
     </select>
 
