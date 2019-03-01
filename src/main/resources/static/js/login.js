@@ -33,7 +33,8 @@ $(function(){
             params.password = password;
 
             $.ajax({
-                url: "http://192.168.0.104:8080/login/check",
+                /*url: "http://192.168.0.104:8080/login/check",*/
+                url: "/login/check",
                 type: 'POST',
                 dataType: "json",
                 contentType: 'application/json',
@@ -44,7 +45,8 @@ $(function(){
                         sessionStorage.setItem("type",data);
                         // window.location.href='home.html';
                         $.ajax({
-                            url: "http://192.168.0.104:8080/user/getPerson",
+                            /*url: "http://192.168.0.104:8080/user/getPerson",*/
+                            url: "/user/getPerson",
                             type: 'POST',
                             dataType: "json",
                             contentType: 'application/json',

@@ -8,6 +8,27 @@ $(function(){
     params.type = type;
 
     if(type==2){
+        str = "<div class=\"t-main1\">\n"
+            +    "<span>学生信息</span>\n"
+            +    "<div class=\"t-main1-list\" >\n"
+            +       "<label>姓名：</label><input id=\"stuName\" type=\"text\" readonly class=\"name-input\" />\n"
+            +    "</div>\n"
+            +    "<div class=\"t-main1-list\" style=\"padding-top: 20px;\">\n"
+            +       "<label>学号：</label><input id=\"stuNo\" type=\"text\" readonly class=\"name-input\" style=\"margin-left: 1px;\" />\n"
+            +    "</div>\n"
+            +    "<div class=\"t-main1-list\" style=\"padding-top: 20px;\">\n"
+            +       "<label>性别：</label><input id=\"stuGender\" type=\"text\" readonly class=\"name-input\" style=\"margin-left: 1px;\" />\n"
+            +    "</div>\n"
+            +    "<div class=\"t-main1-list\" style=\"padding-top: 20px;\">\n"
+            +       "<label>联系电话：</label><input id=\"stuPhone\" type=\"text\" readonly class=\"name-input\" style=\"margin-left: 1px;\" />\n"
+            +    "</div>\n"
+
+            +    "<div class=\"t-main1-list\" style=\"padding-top: 20px;\">\n"
+            +       "<label>家庭住址：</label><input id=\"stuAddress\" type=\"text\" readonly class=\"name-input\" style=\"margin-left: 1px;\" />\n"
+            +    "</div>\n"
+            + "</div>"
+
+        $("#context").append(str);
         adress="/user/studentInfo";
     }else{
         adress="/user/teacherInfo";
