@@ -12,7 +12,7 @@ body{
 	width:100%;
 	max-width:640px;
 	margin:0 auto;
-	
+	background: #ececec;
 	top:0px; bottom:0px; left:0px; right:0px;
 	min-width:320px;}
 .left{
@@ -36,7 +36,7 @@ body{
 	width:100%;
 	max-width:640px;
 	/*height:35%;*/
-	background:#2576db;
+	background:#19b5ff;
 	position: relative;}
 .header img{
 	vertical-align:middle;	
@@ -46,7 +46,7 @@ body{
 .header span{  
 	color:#F0FFFF;
 	font-size:24px;
-	line-height:230%;
+	line-height:210%;
 	}
 .list{
 	line-height:300%;

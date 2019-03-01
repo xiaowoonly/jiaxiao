@@ -117,8 +117,38 @@ ul,li { list-style: none; padding: 0; margin: 0}
 .pet_head_gd_ico { font-size: 27px; }
 .pet_head_block .am-header-nav>a {color: #918f90; height: 30px; line-height: 30px; min-width: 48px;}
 
-#title{ font-size:1.2em; color:#fff; height: 43px; line-height:2.1em; text-align:center; background:#2576db; position:relative; }
+/*
+#title{ font-size:1.2em; color:#fff; height: 44px; line-height:2.3em; text-align:center; background:#19b5ff; position:relative; }
 #title .back{  width:24px; height:24px; text-align:center; position:absolute; top:0.6em; left:0.6em; background:url(../images/icon_return.png) no-repeat; cursor:pointer; }
+*/
+.title{
+  /*height:50px;*/
+  text-align:center;
+  width:100%;
+  max-width:640px;
+  /*height:35%;*/
+  background:#19b5ff;
+  position: relative;}
+.title img{
+  vertical-align:middle;
+  /*text-height:auto;*/
+  /*margin-top:6px;	*/
+  width:8%;
+}
+.title span{
+  color:#F0FFFF;
+  font-size:24px;
+  line-height:210%;
+}
+.left{
+  position: absolute;
+  top:20%;
+
+  left:3%;
+  /*float:left;
+  margin-left:1%;*/
+}
+
 
 /* 内页文章 */
 .pet_content { width: 100%; background: #ececec; padding-top: 49px;}
